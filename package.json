@@ -1,0 +1,28 @@
+{
+  "name": "create-react-app-material-typescript-redux",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "material-ui": "next",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router": "^4.2.0",
+    "react-scripts-ts": "latest"
+  },
+  "devDependencies": {
+    "@types/history": "^4.6.2",
+    "@types/jest": "*",
+    "@types/node": "*",
+    "@types/react-router": "^4.0.18",
+    "typescript": "latest"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  }
+}
