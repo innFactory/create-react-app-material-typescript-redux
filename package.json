@@ -3,20 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@types/react": "*",
-    "@types/react-dom": "*",
     "material-ui": "next",
     "material-ui-icons": "^1.0.0-beta.17",
     "react": "latest",
     "react-dom": "latest",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
-    "react-scripts-ts": "latest"
+    "react-scripts-ts": "latest",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.5.0",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "@types/history": "^4.6.2",
     "@types/jest": "*",
     "@types/node": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@types/react-redux": "^5.0.14",
     "@types/react-router": "^4.0.18",
+    "@types/redux-logger": "^3.0.5",
+    "redux-devtools-extension": "^2.13.2",
     "typescript": "latest"
   },
   "scripts": {

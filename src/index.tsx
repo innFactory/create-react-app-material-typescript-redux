@@ -1,5 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './App';
+import ReduxRoot from './ReduxRoot';
 
-ReactDOM.render(<App />, document.querySelector('#root'));
+ReactDOM.render(<ReduxRoot />, document.querySelector('#root'));
