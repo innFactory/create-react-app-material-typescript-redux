@@ -16,7 +16,6 @@ export namespace TodoDialog {
     }
 
     export interface State {
-        open: boolean;
         newTodoText: string;
     }
 }
@@ -24,7 +23,6 @@ export namespace TodoDialog {
 class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
 
     state = {
-        open: false,
         newTodoText: '',
     };
 
@@ -33,9 +31,6 @@ class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
     }
 
     handleClose = () => {
-        this.setState({
-            open: false,
-        });
         this.props.actions.addTodo({ id: Math.random(), completed: false, text: this.state.newTodoText });
         this.props.onClose();
     };
@@ -49,7 +44,7 @@ class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
     render() {
 
         return (
-            <Dialog open={this.state.open} onClose={this.handleClose}>
+            <Dialog open={this.props.open} onClose={this.handleClose}>
                 <DialogTitle>Add a new TODO</DialogTitle>
                 <TextField
                     id="multiline-flexible"

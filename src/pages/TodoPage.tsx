@@ -52,7 +52,7 @@ class TodoPage extends React.Component<WithStyles & TodoPage.Props, TodoPage.Sta
         </Button>
         </Grid>
         <Grid item xs={12}>
-          <TodoTable todoList={this.props.todoList} />
+          <TodoTable todoList={this.props.todoList} actions={this.props.actions} />
         </Grid>
       </Grid>
     );

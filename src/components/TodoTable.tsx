@@ -3,10 +3,15 @@ import { Todo } from '../model/model';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
+import Checkbox from 'material-ui/Checkbox/Checkbox';
+import * as TodoActions from '../actions/todo';
+import IconButton from 'material-ui/IconButton/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 export namespace TodoTable {
     export interface Props {
         todoList: Todo[];
+        actions: typeof TodoActions;
     }
 }
 
@@ -14,6 +19,14 @@ class TodoTable extends React.Component<WithStyles & TodoTable.Props> {
 
     constructor(props?: (WithStyles & TodoTable.Props), context?: any) {
         super(props as any, context);
+    }
+
+    onRowClick(todo: Todo) {
+        if (todo.completed) {
+            this.props.actions.uncompleteTodo(todo.id);
+        } else {
+            this.props.actions.completeTodo(todo.id);
+        }
     }
 
     render() {
@@ -24,16 +37,32 @@ class TodoTable extends React.Component<WithStyles & TodoTable.Props> {
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell numeric>ID</TableCell>
+                            <TableCell>Completed</TableCell>
                             <TableCell>Text</TableCell>
+                            <TableCell>Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {this.props.todoList.map(n => {
                             return (
-                                <TableRow key={n.id}>
-                                    <TableCell numeric>{n.id}</TableCell>
+                                <TableRow
+                                    key={n.id}
+                                    hover
+                                    onClick={event => this.onRowClick(n)}
+                                >
+                                    <TableCell padding="checkbox">
+                                        <Checkbox checked={n.completed} />
+                                    </TableCell>
                                     <TableCell>{n.text}</TableCell>
+                                    <TableCell padding="checkbox">
+                                        <IconButton
+                                            aria-label="Delete"
+                                            color="default"
+                                            onClick={() => this.props.actions.deleteTodo(n.id)}
+                                        >
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             );
                         })}
@@ -46,12 +75,12 @@ class TodoTable extends React.Component<WithStyles & TodoTable.Props> {
 
 const styles: StyleRulesCallback = theme => ({
     paper: {
-        maxWidth: 700,
-        minWidth: 700,
+        maxWidth: 1000,
+        minWidth: 1000,
         display: 'inline-block'
     },
     table: {
-        maxWidth: 700,
+        maxWidth: 1000,
     },
 });
 

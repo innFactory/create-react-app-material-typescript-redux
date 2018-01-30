@@ -89,7 +89,7 @@ class App extends React.Component<WithStyles & App.Props, App.State> {
                                     <MenuIcon />
                                 </IconButton>
                                 <Typography type="title" color="inherit" noWrap>
-                                    Responsive drawer
+                                    Create-React-App with Material-UI, Typescritpt, Redux and Routing
                             </Typography>
                             </Toolbar>
                         </AppBar>
@@ -128,10 +128,11 @@ class App extends React.Component<WithStyles & App.Props, App.State> {
     }
 
     renderTodoIcon() {
+        let uncompletedTodos = this.props.todoList.filter(t => t.completed === false);
 
-        if (this.props.todoList.length > 0) {
+        if (uncompletedTodos.length > 0) {
             return (
-                <Badge color="secondary" badgeContent={this.props.todoList.length}>
+                <Badge color="secondary" badgeContent={uncompletedTodos.length}>
                     <TodoIcon />
                 </Badge>
             );
