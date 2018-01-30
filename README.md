@@ -19,7 +19,7 @@ Inspired by:
 
 ## How to use
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+Download or clone this repo
 
 ```bash
 git clone https://github.com/innFactory/create-react-app-material-typescript-redux
