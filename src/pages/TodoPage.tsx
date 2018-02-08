@@ -41,13 +41,13 @@ class TodoPage extends React.Component<WithStyles & TodoPage.Props, TodoPage.Sta
           open={this.state.open}
           onClose={() => this.setState({ open: false })}
         />
-        <Grid item xs={1}>
-          <Typography type="display1" gutterBottom>
+        <Grid item xs={2}>
+          <Typography variant="display1" gutterBottom>
             Todo List
         </Typography>
         </Grid>
-        <Grid item xs={1}>
-          <Button raised color="secondary" onClick={() => this.setState({ open: true })}>
+        <Grid item xs={2}>
+          <Button variant="raised" color="secondary" onClick={() => this.setState({ open: true })}>
             Add Todo
         </Button>
         </Grid>

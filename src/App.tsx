@@ -88,14 +88,14 @@ class App extends React.Component<WithStyles & App.Props, App.State> {
                                 >
                                     <MenuIcon />
                                 </IconButton>
-                                <Typography type="title" color="inherit" noWrap>
+                                <Typography variant="title" color="inherit" noWrap>
                                     Create-React-App with Material-UI, Typescritpt, Redux and Routing
                             </Typography>
                             </Toolbar>
                         </AppBar>
                         <Hidden mdUp>
                             <Drawer
-                                type="temporary"
+                                variant="temporary"
                                 anchor={'left'}
                                 open={this.state.mobileOpen}
                                 classes={{
@@ -111,7 +111,7 @@ class App extends React.Component<WithStyles & App.Props, App.State> {
                         </Hidden>
                         <Hidden smDown implementation="css">
                             <Drawer
-                                type="permanent"
+                                variant="permanent"
                                 open
                                 classes={{
                                     paper: this.props.classes.drawerPaper,

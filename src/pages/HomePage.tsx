@@ -17,7 +17,7 @@ class HomePage extends React.Component<WithStyles & HomePage.Props> {
   render() {
     return (
       <div className={this.props.classes.root}>
-        <Typography type="display1" gutterBottom>
+        <Typography variant="display1" gutterBottom>
           You have {this.props.todoList.length} TODOs in your list!
         </Typography>
       </div>

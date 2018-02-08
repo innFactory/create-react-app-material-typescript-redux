@@ -5,7 +5,6 @@ import { Todo } from '../model/model';
 
 export interface RootState {
   todoList: Array<Todo>;
-  todoCount: number;
 }
 
 export default combineReducers<RootState>({
