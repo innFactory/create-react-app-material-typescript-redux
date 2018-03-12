@@ -24,6 +24,7 @@
     "@types/react-redux": "^5.0.14",
     "@types/react-router": "^4.0.18",
     "@types/redux-logger": "^3.0.5",
+    "@types/webpack-env": "^1.13.5",
     "redux-devtools-extension": "^2.13.2",
     "typescript": "latest"
   },
