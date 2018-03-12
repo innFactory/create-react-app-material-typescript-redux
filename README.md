@@ -16,6 +16,7 @@ Inspired by:
 - [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [TodoMVC example](http://todomvc.com)
+- [x] Hot Reloading
 
 ## How to use
 
