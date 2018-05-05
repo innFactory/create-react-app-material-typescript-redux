@@ -26,8 +26,9 @@ class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
         newTodoText: '',
     };
 
-    componentWillReceiveProps(nextProps: Readonly<TodoDialog.Props>) {
-        this.setState({ open: nextProps.open, newTodoText: '' });
+    static getDerivedStateFromProps(nextProps: Readonly<TodoDialog.Props>, prevState: Readonly<TodoDialog.State>) {
+        // return new state
+        return { open: nextProps.open, newTodoText: '' };
     }
 
     handleClose = () => {
