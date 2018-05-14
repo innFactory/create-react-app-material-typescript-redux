@@ -1,6 +1,5 @@
+import { CssBaseline, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import * as React from 'react';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import CssBaseline from 'material-ui/CssBaseline';
 
 // A theme with custom primary and secondary color.
 // It's optional.

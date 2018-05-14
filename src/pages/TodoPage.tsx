@@ -1,16 +1,13 @@
+import { Button, Grid, StyleRulesCallback, Typography, WithStyles, withStyles } from '@material-ui/core';
 import * as React from 'react';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
-import TodoTable from '../components';
-import { RootState } from '../reducers/index';
-import * as TodoActions from '../actions/todo';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Todo } from '../model/model';
 import { RouteComponentProps } from 'react-router';
-import Grid from 'material-ui/Grid';
+import { bindActionCreators } from 'redux';
+import * as TodoActions from '../actions/todo';
+import TodoTable from '../components';
 import TodoDialog from '../components/TodoDialog';
+import { Todo } from '../model/model';
+import { RootState } from '../reducers/index';
 
 export namespace TodoPage {
   export interface Props extends RouteComponentProps<void> {

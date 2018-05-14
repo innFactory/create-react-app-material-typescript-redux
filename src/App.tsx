@@ -1,25 +1,16 @@
+import { AppBar, Badge, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, StyleRulesCallback, Toolbar, Typography, WithStyles, withStyles } from '@material-ui/core';
+import TodoIcon from '@material-ui/icons/FormatListNumbered';
+import HomeIcon from '@material-ui/icons/Home';
+import MenuIcon from '@material-ui/icons/Menu';
+import { createBrowserHistory } from 'history';
 import * as React from 'react';
-import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
-import withRoot from './withRoot';
+import { connect } from 'react-redux';
+import { Route, RouteComponentProps, Router } from 'react-router';
+import { Todo } from './model/model';
 import HomePage from './pages/HomePage';
 import TodoPage from './pages/TodoPage';
-import { Router, Route, RouteComponentProps } from 'react-router';
-import { createBrowserHistory } from 'history';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import IconButton from 'material-ui/IconButton';
-import Typography from 'material-ui/Typography';
-import Drawer from 'material-ui/Drawer';
-import Hidden from 'material-ui/Hidden';
-import Divider from 'material-ui/Divider';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import MenuIcon from 'material-ui-icons/Menu';
-import HomeIcon from 'material-ui-icons/Home';
-import TodoIcon from 'material-ui-icons/FormatListNumbered';
-import Badge from 'material-ui/Badge/Badge';
 import { RootState } from './reducers/index';
-import { connect } from 'react-redux';
-import { Todo } from './model/model';
+import withRoot from './withRoot';
 
 export namespace App {
     export interface Props extends RouteComponentProps<void> {

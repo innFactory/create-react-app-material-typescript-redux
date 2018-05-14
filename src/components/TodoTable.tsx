@@ -1,12 +1,8 @@
+import { Checkbox, IconButton, Paper, StyleRulesCallback, Table, TableBody, TableCell, TableHead, TableRow, WithStyles, withStyles } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 import * as React from 'react';
-import { Todo } from '../model/model';
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-import Paper from 'material-ui/Paper';
-import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
-import Checkbox from 'material-ui/Checkbox/Checkbox';
 import * as TodoActions from '../actions/todo';
-import IconButton from 'material-ui/IconButton/IconButton';
-import DeleteIcon from 'material-ui-icons/Delete';
+import { Todo } from '../model/model';
 
 export namespace TodoTable {
     export interface Props {

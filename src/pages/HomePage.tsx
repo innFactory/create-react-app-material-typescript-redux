@@ -1,10 +1,9 @@
+import { StyleRulesCallback, Typography, WithStyles, withStyles } from '@material-ui/core';
 import * as React from 'react';
-import Typography from 'material-ui/Typography';
-import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
-import { RootState } from '../reducers';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Todo } from '../model/model';
+import { RootState } from '../reducers';
 
 export namespace HomePage {
   export interface Props extends RouteComponentProps<void> {
