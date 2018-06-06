@@ -1,19 +1,20 @@
-import { Checkbox, IconButton, Paper, StyleRulesCallback, Table, TableBody, TableCell, TableHead, TableRow, WithStyles, withStyles } from '@material-ui/core';
+import { Checkbox, IconButton, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, WithStyles, withStyles } from '@material-ui/core';
+import createStyles from '@material-ui/core/styles/createStyles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import * as React from 'react';
 import * as TodoActions from '../actions/todo';
 import { Todo } from '../model/model';
 
 export namespace TodoTable {
-    export interface Props {
+    export interface Props extends WithStyles<typeof styles> {
         todoList: Todo[];
         actions: typeof TodoActions;
     }
 }
 
-class TodoTable extends React.Component<WithStyles & TodoTable.Props> {
+class TodoTable extends React.Component<TodoTable.Props> {
 
-    constructor(props?: (WithStyles & TodoTable.Props), context?: any) {
+    constructor(props?: (TodoTable.Props), context?: any) {
         super(props as any, context);
     }
 
@@ -69,7 +70,7 @@ class TodoTable extends React.Component<WithStyles & TodoTable.Props> {
     }
 }
 
-const styles: StyleRulesCallback = theme => ({
+const styles = (theme: Theme) => createStyles({
     paper: {
         maxWidth: 1000,
         minWidth: 1000,

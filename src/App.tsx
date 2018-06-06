@@ -1,4 +1,5 @@
-import { AppBar, Badge, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, StyleRulesCallback, Toolbar, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { AppBar, Badge, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Theme, Toolbar, Typography, WithStyles, withStyles } from '@material-ui/core';
+import createStyles from '@material-ui/core/styles/createStyles';
 import TodoIcon from '@material-ui/icons/FormatListNumbered';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -13,7 +14,7 @@ import { RootState } from './reducers/index';
 import withRoot from './withRoot';
 
 export namespace App {
-    export interface Props extends RouteComponentProps<void> {
+    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
         todoList: Todo[];
     }
 
@@ -24,7 +25,7 @@ export namespace App {
 
 const history = createBrowserHistory();
 
-class App extends React.Component<WithStyles & App.Props, App.State> {
+class App extends React.Component<App.Props, App.State> {
 
     state = {
         mobileOpen: true,
@@ -140,7 +141,7 @@ class App extends React.Component<WithStyles & App.Props, App.State> {
 }
 
 const drawerWidth = 240;
-const styles: StyleRulesCallback = theme => ({
+const styles = (theme: Theme) => createStyles({
     root: {
         width: '100%',
         height: '100%',

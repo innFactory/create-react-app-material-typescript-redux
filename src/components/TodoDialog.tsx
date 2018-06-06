@@ -1,12 +1,13 @@
-import { Button, Dialog, DialogActions, DialogTitle, StyleRulesCallback, TextField, WithStyles, withStyles } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogTitle, TextField, Theme, WithStyles, withStyles } from '@material-ui/core';
+import createStyles from '@material-ui/core/styles/createStyles';
 import * as React from 'react';
 import * as TodoActions from '../actions/todo';
 
 export namespace TodoDialog {
-    export interface Props {
+    export interface Props extends WithStyles<typeof styles> {
         actions: typeof TodoActions;
         open: boolean;
-        onClose: Function;
+        onClose: () => void;
     }
 
     export interface State {
@@ -14,7 +15,7 @@ export namespace TodoDialog {
     }
 }
 
-class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
+class TodoDialog extends React.Component<TodoDialog.Props> {
 
     state = {
         newTodoText: '',
@@ -22,12 +23,15 @@ class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
 
     static getDerivedStateFromProps(nextProps: Readonly<TodoDialog.Props>, prevState: Readonly<TodoDialog.State>) {
         // return new state
-        return { open: nextProps.open, newTodoText: '' };
+        return { open: nextProps.open, newTodoText: prevState.newTodoText };
     }
 
     handleClose = () => {
         this.props.actions.addTodo({ id: Math.random(), completed: false, text: this.state.newTodoText });
         this.props.onClose();
+
+        // reset todo text if user reopens the dialog
+        this.setState({ newTodoText: '' });
     };
 
     handleChange = (name: string) => (event: any) => {
@@ -58,7 +62,7 @@ class TodoDialog extends React.Component<WithStyles & TodoDialog.Props> {
     }
 }
 
-const styles: StyleRulesCallback = theme => ({
+const styles = (theme: Theme) => createStyles({
     textField: {
         width: 400,
         margin: 20

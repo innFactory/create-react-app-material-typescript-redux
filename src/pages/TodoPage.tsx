@@ -1,4 +1,5 @@
-import { Button, Grid, StyleRulesCallback, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Button, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
+import createStyles from '@material-ui/core/styles/createStyles';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -10,7 +11,7 @@ import { Todo } from '../model/model';
 import { RootState } from '../reducers/index';
 
 export namespace TodoPage {
-  export interface Props extends RouteComponentProps<void> {
+  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
     todoList: Todo[];
     actions: typeof TodoActions;
   }
@@ -20,21 +21,23 @@ export namespace TodoPage {
   }
 }
 
-class TodoPage extends React.Component<WithStyles & TodoPage.Props, TodoPage.State> {
+class TodoPage extends React.Component<TodoPage.Props, TodoPage.State> {
   state = {
     open: false,
   };
 
   render() {
+    const { classes, actions, todoList } = this.props;
+
     return (
       <Grid
         container
-        className={this.props.classes.root}
+        className={classes.root}
         alignItems={'flex-start'}
         justify={'flex-start'}
       >
         <TodoDialog
-          actions={this.props.actions}
+          actions={actions}
           open={this.state.open}
           onClose={() => this.setState({ open: false })}
         />
@@ -44,19 +47,22 @@ class TodoPage extends React.Component<WithStyles & TodoPage.Props, TodoPage.Sta
         </Typography>
         </Grid>
         <Grid item xs={2}>
-          <Button variant="raised" color="secondary" onClick={() => this.setState({ open: true })}>
+          <Button variant="raised" color="secondary" onClick={this.handleAddTodo}>
             Add Todo
         </Button>
         </Grid>
         <Grid item xs={12}>
-          <TodoTable todoList={this.props.todoList} actions={this.props.actions} />
+          <TodoTable todoList={todoList} actions={actions} />
         </Grid>
       </Grid>
     );
   }
+
+  handleAddTodo = () => this.setState({ open: true });
+
 }
 
-const styles: StyleRulesCallback = theme => ({
+const styles = (theme: Theme) => createStyles({
   root: {
     padding: theme.spacing.unit * 10,
   },

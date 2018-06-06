@@ -1,4 +1,5 @@
-import { StyleRulesCallback, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
+import createStyles from '@material-ui/core/styles/createStyles';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -6,12 +7,12 @@ import { Todo } from '../model/model';
 import { RootState } from '../reducers';
 
 export namespace HomePage {
-  export interface Props extends RouteComponentProps<void> {
+  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
     todoList: Todo[];
   }
 }
 
-class HomePage extends React.Component<WithStyles & HomePage.Props> {
+class HomePage extends React.Component<HomePage.Props> {
 
   render() {
     return (
@@ -24,7 +25,7 @@ class HomePage extends React.Component<WithStyles & HomePage.Props> {
   }
 }
 
-const styles: StyleRulesCallback = theme => ({
+const styles = (theme: Theme) => createStyles({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
