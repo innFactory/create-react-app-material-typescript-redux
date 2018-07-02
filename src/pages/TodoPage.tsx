@@ -1,5 +1,4 @@
-import { Button, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
-import createStyles from '@material-ui/core/styles/createStyles';
+import { Button, createStyles, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';

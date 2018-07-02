@@ -1,5 +1,4 @@
-import { Checkbox, IconButton, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, WithStyles, withStyles } from '@material-ui/core';
-import createStyles from '@material-ui/core/styles/createStyles';
+import { Checkbox, createStyles, IconButton, Paper, Table, TableBody, TableCell, TableHead, TableRow, Theme, WithStyles, withStyles } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import * as React from 'react';
 import * as TodoActions from '../actions/todo';
