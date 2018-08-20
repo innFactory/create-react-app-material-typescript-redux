@@ -14,3 +14,6 @@ if (module.hot) {
         );
     });
 }
+
+// comment in for PWA with service worker in production mode
+// registerServiceWorker();
