@@ -1,4 +1,5 @@
-import { Button, createStyles, Grid, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Button, createStyles, Grid, Theme, Typography, WithStyles, withStyles, withWidth } from '@material-ui/core';
+import { WithWidthProps } from '@material-ui/core/withWidth';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -8,9 +9,10 @@ import TodoTable from '../components';
 import TodoDialog from '../components/TodoDialog';
 import { Todo } from '../model/model';
 import { RootState } from '../reducers/index';
+import { isSmartphone } from '../responsive';
 
 export namespace TodoPage {
-  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
+  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidthProps {
     todoList: Todo[];
     actions: typeof TodoActions;
   }
@@ -26,12 +28,12 @@ class TodoPage extends React.Component<TodoPage.Props, TodoPage.State> {
   };
 
   render() {
-    const { classes, actions, todoList } = this.props;
+    const { classes, actions, todoList, width } = this.props;
 
     return (
       <Grid
         container
-        className={classes.root}
+        className={isSmartphone(width) ? classes.mobileRoot : classes.root}
         alignItems={'flex-start'}
         justify={'flex-start'}
       >
@@ -40,13 +42,13 @@ class TodoPage extends React.Component<TodoPage.Props, TodoPage.State> {
           open={this.state.open}
           onClose={() => this.setState({ open: false })}
         />
-        <Grid item xs={2}>
+        <Grid item xs={12}>
           <Typography variant="display1" gutterBottom>
             Todo List
         </Typography>
         </Grid>
-        <Grid item xs={2}>
-          <Button variant="raised" color="secondary" onClick={this.handleAddTodo}>
+        <Grid item xs={12}>
+          <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleAddTodo}>
             Add Todo
         </Button>
         </Grid>
@@ -65,6 +67,16 @@ const styles = (theme: Theme) => createStyles({
   root: {
     padding: theme.spacing.unit * 10,
   },
+
+  mobileRoot: {
+    paddingTop: 50,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+
+  button: {
+    marginBottom: 15,
+  },
 });
 
 function mapStateToProps(state: RootState) {
@@ -79,4 +91,4 @@ function mapDispatchToProps(dispatch: any) {
   };
 }
 
-export default (withStyles(styles)<{}>(connect(mapStateToProps, mapDispatchToProps)(TodoPage)));
+export default (withStyles(styles)<{}>(connect(mapStateToProps, mapDispatchToProps)(withWidth()(TodoPage))));

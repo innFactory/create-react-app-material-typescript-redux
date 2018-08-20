@@ -28,6 +28,8 @@ const styles = (theme: Theme) => createStyles({
   root: {
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 });
 

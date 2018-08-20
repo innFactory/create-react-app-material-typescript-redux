@@ -33,9 +33,9 @@ class TodoTable extends React.Component<TodoTable.Props> {
                 <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Completed</TableCell>
-                            <TableCell>Text</TableCell>
-                            <TableCell>Delete</TableCell>
+                            <TableCell padding="dense">Completed</TableCell>
+                            <TableCell padding="dense">Text</TableCell>
+                            <TableCell padding="dense">Delete</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -46,11 +46,11 @@ class TodoTable extends React.Component<TodoTable.Props> {
                                     hover
                                     onClick={event => this.onRowClick(n)}
                                 >
-                                    <TableCell padding="checkbox">
+                                    <TableCell padding="dense">
                                         <Checkbox checked={n.completed} />
                                     </TableCell>
-                                    <TableCell>{n.text}</TableCell>
-                                    <TableCell padding="checkbox">
+                                    <TableCell padding="dense">{n.text}</TableCell>
+                                    <TableCell padding="dense">
                                         <IconButton
                                             aria-label="Delete"
                                             color="default"
@@ -71,12 +71,12 @@ class TodoTable extends React.Component<TodoTable.Props> {
 
 const styles = (theme: Theme) => createStyles({
     paper: {
-        maxWidth: 1000,
-        minWidth: 1000,
+        width: '100%',
+        minWidth: 260,
         display: 'inline-block'
     },
     table: {
-        maxWidth: 1000,
+        width: '100%'
     },
 });
 
