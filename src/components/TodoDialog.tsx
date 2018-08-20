@@ -63,7 +63,7 @@ class TodoDialog extends React.Component<TodoDialog.Props> {
 
 const styles = (theme: Theme) => createStyles({
     textField: {
-        width: 400,
+        width: '80%',
         margin: 20
     }
 });

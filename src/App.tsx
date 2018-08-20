@@ -1,4 +1,5 @@
 import { AppBar, Badge, createStyles, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Theme, Toolbar, Typography, WithStyles, withStyles } from '@material-ui/core';
+import withWidth, { WithWidthProps } from '@material-ui/core/withWidth';
 import TodoIcon from '@material-ui/icons/FormatListNumbered';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -10,10 +11,11 @@ import { Todo } from './model/model';
 import HomePage from './pages/HomePage';
 import TodoPage from './pages/TodoPage';
 import { RootState } from './reducers/index';
+import { isSmartphone } from './responsive';
 import withRoot from './withRoot';
 
 export namespace App {
-    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
+    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidthProps {
         todoList: Todo[];
     }
 
@@ -39,6 +41,8 @@ class App extends React.Component<App.Props, App.State> {
     );
 
     render() {
+
+        const { width } = this.props;
 
         let drawer = (
             <div>
@@ -79,7 +83,7 @@ class App extends React.Component<App.Props, App.State> {
                                 >
                                     <MenuIcon />
                                 </IconButton>
-                                <Typography variant="title" color="inherit" noWrap>
+                                <Typography variant="title" color="inherit" noWrap={!isSmartphone(width)}>
                                     Create-React-App with Material-UI, Typescritpt, Redux and Routing
                             </Typography>
                             </Toolbar>
@@ -190,4 +194,4 @@ function mapStateToProps(state: RootState) {
     };
 }
 
-export default (withRoot(withStyles(styles)<{}>(connect(mapStateToProps)(App))));
+export default (withRoot(withStyles(styles)<{}>(connect(mapStateToProps)(withWidth()(App)))));
