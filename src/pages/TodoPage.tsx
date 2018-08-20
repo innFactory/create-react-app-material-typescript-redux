@@ -69,7 +69,7 @@ const styles = (theme: Theme) => createStyles({
   },
 
   mobileRoot: {
-    paddingTop: 30,
+    paddingTop: 50,
     paddingLeft: 15,
     paddingRight: 15,
   },
