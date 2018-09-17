@@ -17,6 +17,7 @@ Inspired by:
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [TodoMVC example](http://todomvc.com)
 - [x] Hot Reloading
+- [x] PWA Support
 
 ## How to use
 
@@ -32,6 +33,16 @@ Install it and run:
 ```bash
 npm i
 npm start
+```
+
+## Enable PWA ServiceWorker
+Just comment in the following line in the `index.tsx`:
+```javascript
+// registerServiceWorker();
+```
+to
+```javascript
+registerServiceWorker();
 ```
 
 ## The idea behind the example
