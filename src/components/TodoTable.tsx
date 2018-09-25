@@ -13,10 +13,6 @@ export namespace TodoTable {
 
 class TodoTable extends React.Component<TodoTable.Props> {
 
-    constructor(props?: (TodoTable.Props), context?: any) {
-        super(props as any, context);
-    }
-
     onRowClick(todo: Todo) {
         if (todo.completed) {
             this.props.actions.uncompleteTodo(todo.id);
@@ -80,4 +76,4 @@ const styles = (theme: Theme) => createStyles({
     },
 });
 
-export default withStyles(styles)<TodoTable.Props>(TodoTable);
+export default withStyles(styles)(TodoTable);

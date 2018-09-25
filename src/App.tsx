@@ -1,5 +1,5 @@
-import { AppBar, Badge, createStyles, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Theme, Toolbar, Typography, WithStyles, withStyles } from '@material-ui/core';
-import withWidth, { WithWidthProps } from '@material-ui/core/withWidth';
+import { AppBar, Badge, createStyles, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Theme, Toolbar, Typography, WithStyles, withStyles, withWidth } from '@material-ui/core';
+import { WithWidth } from '@material-ui/core/withWidth';
 import TodoIcon from '@material-ui/icons/FormatListNumbered';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -15,7 +15,7 @@ import { isSmartphone } from './responsive';
 import withRoot from './withRoot';
 
 export namespace App {
-    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidthProps {
+    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidth {
         todoList: Todo[];
     }
 
@@ -194,4 +194,4 @@ function mapStateToProps(state: RootState) {
     };
 }
 
-export default (withRoot(withStyles(styles)<{}>(connect(mapStateToProps)(withWidth()(App)))));
+export default withRoot(withStyles(styles)(connect(mapStateToProps)(withWidth()(App))));

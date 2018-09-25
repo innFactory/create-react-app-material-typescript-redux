@@ -1,5 +1,5 @@
 import { Button, createStyles, Grid, Theme, Typography, WithStyles, withStyles, withWidth } from '@material-ui/core';
-import { WithWidthProps } from '@material-ui/core/withWidth';
+import { WithWidth } from '@material-ui/core/withWidth';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
@@ -12,7 +12,7 @@ import { RootState } from '../reducers/index';
 import { isSmartphone } from '../responsive';
 
 export namespace TodoPage {
-  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidthProps {
+  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidth {
     todoList: Todo[];
     actions: typeof TodoActions;
   }
@@ -91,4 +91,4 @@ function mapDispatchToProps(dispatch: any) {
   };
 }
 
-export default (withStyles(styles)<{}>(connect(mapStateToProps, mapDispatchToProps)(withWidth()(TodoPage))));
+export default withStyles(styles)(connect(mapStateToProps, mapDispatchToProps)(withWidth()(TodoPage)));

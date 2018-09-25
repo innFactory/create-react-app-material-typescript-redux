@@ -39,4 +39,4 @@ function mapStateToProps(state: RootState) {
   };
 }
 
-export default (withStyles(styles)<{}>(connect(mapStateToProps)(HomePage)));
+export default withStyles(styles)(connect(mapStateToProps)(HomePage));

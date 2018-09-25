@@ -68,4 +68,4 @@ const styles = (theme: Theme) => createStyles({
     }
 });
 
-export default withStyles(styles)<TodoDialog.Props>(TodoDialog);
+export default withStyles(styles)(TodoDialog);
