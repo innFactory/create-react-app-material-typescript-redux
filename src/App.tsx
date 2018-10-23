@@ -83,8 +83,8 @@ class App extends React.Component<App.Props, App.State> {
                                 >
                                     <MenuIcon />
                                 </IconButton>
-                                <Typography variant="title" color="inherit" noWrap={!isSmartphone(width)}>
-                                    Create-React-App with Material-UI, Typescritpt, Redux and Routing
+                                <Typography variant="h6" color="inherit" noWrap={!isSmartphone(width)}>
+                                    Create-React-App with Material-UI, Typescript, Redux and Routing
                             </Typography>
                             </Toolbar>
                         </AppBar>

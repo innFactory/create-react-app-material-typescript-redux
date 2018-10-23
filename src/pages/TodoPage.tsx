@@ -43,12 +43,12 @@ class TodoPage extends React.Component<TodoPage.Props, TodoPage.State> {
           onClose={() => this.setState({ open: false })}
         />
         <Grid item xs={12}>
-          <Typography variant="display1" gutterBottom>
+          <Typography variant="h4" gutterBottom>
             Todo List
         </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Button className={classes.button} variant="raised" color="secondary" onClick={this.handleAddTodo}>
+          <Button className={classes.button} variant="contained" color="secondary" onClick={this.handleAddTodo}>
             Add Todo
         </Button>
         </Grid>

@@ -1,9 +1,12 @@
-import { CssBaseline, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, CssBaseline, MuiThemeProvider } from '@material-ui/core';
 import * as React from 'react';
 
 // A theme with custom primary and secondary color.
 // It's optional.
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: {
       light: '#e5e5e5',
