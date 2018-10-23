@@ -1,22 +1,22 @@
 import * as React from 'react';
-import App from './App';
-import {
-    createStore,
-    applyMiddleware,
-    Store,
-} from 'redux';
-import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 import { Provider } from 'react-redux';
+import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { createLogger } from 'redux-logger';
+import thunk from 'redux-thunk';
+import App from './App';
 import rootReducer, { RootState } from './reducers';
 
 const logger = (createLogger as any)();
 
-var middleware = applyMiddleware(logger, thunk);
+var middleware;
 
 if (process.env.NODE_ENV === 'development') {
-    middleware = composeWithDevTools(middleware);
+    // middleware for development with logger and devTools
+    middleware = composeWithDevTools(applyMiddleware(logger, thunk));
+} else {
+    // middleware for production
+    middleware = applyMiddleware(thunk);
 }
 
 const store = createStore(rootReducer, {}, middleware) as Store<RootState>;
