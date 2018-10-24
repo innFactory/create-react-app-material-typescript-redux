@@ -42,11 +42,11 @@ class App extends React.Component<App.Props, App.State> {
 
     render() {
 
-        const { width } = this.props;
+        const { width, classes } = this.props;
 
         let drawer = (
             <div>
-                <div className={this.props.classes.drawerHeader} />
+                <div className={classes.drawerHeader} />
                 <Divider />
                 <List>
                     <ListItem button onClick={() => history.push('/')}>
@@ -71,15 +71,15 @@ class App extends React.Component<App.Props, App.State> {
 
         return (
             <Router history={history}>
-                <div className={this.props.classes.root}>
-                    <div className={this.props.classes.appFrame}>
-                        <AppBar className={this.props.classes.appBar}>
+                <div className={classes.root}>
+                    <div className={classes.appFrame}>
+                        <AppBar className={classes.appBar}>
                             <Toolbar>
                                 <IconButton
                                     color="inherit"
                                     aria-label="open drawer"
                                     onClick={this.handleDrawerToggle}
-                                    className={this.props.classes.navIconHide}
+                                    className={classes.navIconHide}
                                 >
                                     <MenuIcon />
                                 </IconButton>
@@ -94,7 +94,7 @@ class App extends React.Component<App.Props, App.State> {
                                 anchor={'left'}
                                 open={this.state.mobileOpen}
                                 classes={{
-                                    paper: this.props.classes.drawerPaper,
+                                    paper: classes.drawerPaper,
                                 }}
                                 onClose={this.handleDrawerToggle}
                                 ModalProps={{
@@ -109,7 +109,7 @@ class App extends React.Component<App.Props, App.State> {
                                 variant="permanent"
                                 open
                                 classes={{
-                                    paper: this.props.classes.drawerPaper,
+                                    paper: classes.drawerPaper,
                                 }}
                             >
                                 {drawer}
