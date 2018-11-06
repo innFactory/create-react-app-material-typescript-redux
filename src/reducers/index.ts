@@ -1,12 +1,15 @@
 
+import { connectRouter } from 'connected-react-router';
+import { History } from 'history';
 import { combineReducers } from 'redux';
-import * as todoReducder from './todo';
 import { Todo } from '../model/model';
+import * as todoReducder from './todo';
 
 export interface RootState {
   todoList: Array<Todo>;
 }
 
-export default combineReducers<RootState>({
+export default (history: History) => combineReducers({
+  router: connectRouter(history),
   ...todoReducder
 });

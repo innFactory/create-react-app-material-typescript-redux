@@ -1,25 +1,24 @@
+
+import { Typography } from '@material-ui/core';
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore, Store } from 'redux';
+import { applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
+import { PersistGate } from 'redux-persist/integration/react';
 import thunk from 'redux-thunk';
 import App from './App';
-import rootReducer, { RootState } from './reducers';
+import configureStore from './configureStore';
 
 const logger = (createLogger as any)();
 
-var middleware;
+var middleware = applyMiddleware(logger, thunk);
 
 if (process.env.NODE_ENV === 'development') {
-    // middleware for development with logger and devTools
-    middleware = composeWithDevTools(applyMiddleware(logger, thunk));
-} else {
-    // middleware for production
-    middleware = applyMiddleware(thunk);
+    middleware = composeWithDevTools(middleware);
 }
 
-const store = createStore(rootReducer, {}, middleware) as Store<RootState>;
+const { persistor, store } = configureStore();
 
 class ReduxRoot extends React.Component {
 
@@ -31,7 +30,9 @@ class ReduxRoot extends React.Component {
 
         return (
             <Provider store={store}>
-                <App />
+                <PersistGate loading={<Typography>Loading...</Typography>} persistor={persistor}>
+                    <App />
+                </PersistGate>
             </Provider>
         );
     }

@@ -3,16 +3,17 @@ import { WithWidth } from '@material-ui/core/withWidth';
 import TodoIcon from '@material-ui/icons/FormatListNumbered';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
-import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route, RouteComponentProps, Router } from 'react-router';
+import { Route, RouteComponentProps } from 'react-router';
 import { Todo } from './model/model';
 import HomePage from './pages/HomePage';
 import TodoPage from './pages/TodoPage';
 import { RootState } from './reducers/index';
 import { isSmartphone } from './responsive';
 import withRoot from './withRoot';
+import { history } from './configureStore';
+import { ConnectedRouter } from 'connected-react-router';
 
 export namespace App {
     export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidth {
@@ -23,8 +24,6 @@ export namespace App {
         mobileOpen: boolean;
     }
 }
-
-const history = createBrowserHistory();
 
 class App extends React.Component<App.Props, App.State> {
 
@@ -70,7 +69,7 @@ class App extends React.Component<App.Props, App.State> {
         );
 
         return (
-            <Router history={history}>
+            <ConnectedRouter history={history}>
                 <div className={classes.root}>
                     <div className={classes.appFrame}>
                         <AppBar className={classes.appBar}>
@@ -118,7 +117,7 @@ class App extends React.Component<App.Props, App.State> {
                         {this.routes}
                     </div>
                 </div>
-            </Router>
+            </ConnectedRouter>
         );
     }
 
