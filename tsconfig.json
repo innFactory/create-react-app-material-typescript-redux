@@ -19,7 +19,8 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "baseUrl": ".",
+    "skipLibCheck": true,
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules",
