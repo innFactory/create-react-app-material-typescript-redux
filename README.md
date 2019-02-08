@@ -20,6 +20,12 @@ Inspired by:
 - [ ] Hot Reloading
 - [x] PWA Support
 
+## Roadmap
+
+- [ ] Wait for react-redux hooks
+- [ ] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
+
+
 ## How to use
 
 Download or clone this repo
