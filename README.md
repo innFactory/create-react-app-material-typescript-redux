@@ -25,6 +25,7 @@ Inspired by:
 - [ ] Wait for react-redux hooks
 - [ ] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
 
+See the progress on [Branch V2](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v2)
 
 ## How to use
 
