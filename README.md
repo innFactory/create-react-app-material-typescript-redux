@@ -19,14 +19,15 @@ Inspired by:
 - [x] [React Router](https://github.com/ReactTraining/react-router)
 - [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [x] [TodoMVC example](http://todomvc.com)
-- [ ] Hot Reloading
 - [x] PWA Support
 
 ## Roadmap
 
 - [x] Make function based components and use hooks for state etc.
 - [x] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
-- [] Waiting for the public hook api of react-redux which is discussed [here](https://github.com/reduxjs/react-redux/issues/1179)
+- [ ] Waiting for the public hook api of react-redux which is discussed [here](https://github.com/reduxjs/react-redux/issues/1179)
+- [ ] Hot Reloading -> Waiting for official support of react-scripts
+
 
 ## How to use
 
