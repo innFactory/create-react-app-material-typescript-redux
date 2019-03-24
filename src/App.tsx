@@ -51,7 +51,6 @@ function Drawer(props: { todoList: Todo[] }) {
                     <ListItemText primary="Todo" />
                 </ListItem>
             </List>
-            <div style={{ height: 10000 }} />
         </div>
     );
 }
