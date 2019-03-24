@@ -37,7 +37,6 @@
     "@types/react-dom": "16.8.3",
     "@types/react-redux": "^7.0.5",
     "@types/react-router-dom": "^4.3.1",
-    "@types/redux-logger": "^3.0.7",
-    "@types/webpack-env": "^1.13.9"
+    "@types/redux-logger": "^3.0.7"
   }
 }
