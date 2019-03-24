@@ -12,7 +12,7 @@ import configureStore from './configureStore';
 
 const logger = (createLogger as any)();
 
-var middleware = applyMiddleware(logger, thunk);
+let middleware = applyMiddleware(logger, thunk);
 
 if (process.env.NODE_ENV === 'development') {
     middleware = composeWithDevTools(middleware);
@@ -20,22 +20,15 @@ if (process.env.NODE_ENV === 'development') {
 
 const { persistor, store } = configureStore();
 
-class ReduxRoot extends React.Component {
+function ReduxRoot() {
 
-    state = {
-        mobileOpen: true,
-    };
-
-    render() {
-
-        return (
-            <Provider store={store}>
-                <PersistGate loading={<Typography>Loading...</Typography>} persistor={persistor}>
-                    <App />
-                </PersistGate>
-            </Provider>
-        );
-    }
+    return (
+        <Provider store={store}>
+            <PersistGate loading={<Typography>Loading...</Typography>} persistor={persistor}>
+                <App />
+            </PersistGate>
+        </Provider>
+    );
 }
 
 export default ReduxRoot;

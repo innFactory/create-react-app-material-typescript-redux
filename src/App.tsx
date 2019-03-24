@@ -1,149 +1,149 @@
-import { AppBar, Badge, createStyles, Divider, Drawer, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Theme, Toolbar, Typography, WithStyles, withStyles, withWidth } from '@material-ui/core';
-import { WithWidth } from '@material-ui/core/withWidth';
-import TodoIcon from '@material-ui/icons/FormatListNumbered';
+import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, withWidth } from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
+import { isWidthUp, WithWidth } from '@material-ui/core/withWidth';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/styles';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Route, RouteComponentProps } from 'react-router';
+import { Route, RouteComponentProps, Router } from 'react-router-dom';
+import { history } from './configureStore';
 import { Todo } from './model/model';
 import HomePage from './pages/HomePage';
 import TodoPage from './pages/TodoPage';
 import { RootState } from './reducers/index';
-import { isSmartphone } from './responsive';
 import withRoot from './withRoot';
-import { history } from './configureStore';
-import { ConnectedRouter } from 'connected-react-router';
 
-export namespace App {
-    export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles>, WithWidth {
-        todoList: Todo[];
-    }
+function Routes() {
+    const classes = useStyles();
 
-    export interface State {
-        mobileOpen: boolean;
-    }
-}
-
-class App extends React.Component<App.Props, App.State> {
-
-    state = {
-        mobileOpen: true,
-    };
-
-    routes = (
-        <div className={this.props.classes.content}>
+    return (
+        <div className={classes.content}>
             <Route exact={true} path="/" component={HomePage} />
             <Route exact={true} path="/home" component={HomePage} />
             <Route exact={true} path="/todo" component={TodoPage} />
         </div>
     );
+}
 
-    render() {
+function Drawer(props: { todoList: Todo[] }) {
+    const classes = useStyles();
 
-        const { width, classes } = this.props;
+    return (
+        <div>
+            <div className={classes.drawerHeader} />
+            <Divider />
+            <List>
+                <ListItem button onClick={() => history.push('/')}>
+                    <ListItemIcon>
+                        <HomeIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Home" />
+                </ListItem>
+            </List>
+            <Divider />
+            <List>
+                <ListItem button onClick={() => history.push('/todo')}>
+                    <ListItemIcon>
+                        <TodoIcon todoList={props.todoList} />
+                    </ListItemIcon>
+                    <ListItemText primary="Todo" />
+                </ListItem>
+            </List>
+            <div style={{ height: 10000 }} />
+        </div>
+    );
+}
 
-        let drawer = (
-            <div>
-                <div className={classes.drawerHeader} />
-                <Divider />
-                <List>
-                    <ListItem button onClick={() => history.push('/')}>
-                        <ListItemIcon>
-                            <HomeIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Home" />
-                    </ListItem>
-                </List>
-                <Divider />
-                <List>
-                    <ListItem button onClick={() => history.push('/todo')}>
-                        <ListItemIcon>
-                            {this.renderTodoIcon()}
-                        </ListItemIcon>
-                        <ListItemText primary="Todo" />
-                    </ListItem>
-                </List>
-                <div style={{ height: 10000 }} />
-            </div>
-        );
+interface Props extends RouteComponentProps<void>, WithWidth {
+    todoList: Todo[];
+}
 
-        return (
-            <ConnectedRouter history={history}>
-                <div className={classes.root}>
-                    <div className={classes.appFrame}>
-                        <AppBar className={classes.appBar}>
-                            <Toolbar>
-                                <IconButton
-                                    color="inherit"
-                                    aria-label="open drawer"
-                                    onClick={this.handleDrawerToggle}
-                                    className={classes.navIconHide}
-                                >
-                                    <MenuIcon />
-                                </IconButton>
-                                <Typography variant="h6" color="inherit" noWrap={!isSmartphone(width)}>
-                                    Create-React-App with Material-UI, Typescript, Redux and Routing
-                            </Typography>
-                            </Toolbar>
-                        </AppBar>
-                        <Hidden mdUp>
-                            <Drawer
-                                variant="temporary"
-                                anchor={'left'}
-                                open={this.state.mobileOpen}
-                                classes={{
-                                    paper: classes.drawerPaper,
-                                }}
-                                onClose={this.handleDrawerToggle}
-                                ModalProps={{
-                                    keepMounted: true, // Better open performance on mobile.
-                                }}
-                            >
-                                {drawer}
-                            </Drawer>
-                        </Hidden>
-                        <Hidden smDown implementation="css">
-                            <Drawer
-                                variant="permanent"
-                                open
-                                classes={{
-                                    paper: classes.drawerPaper,
-                                }}
-                            >
-                                {drawer}
-                            </Drawer>
-                        </Hidden>
-                        {this.routes}
-                    </div>
-                </div>
-            </ConnectedRouter>
-        );
+function App(props?: Props) {
+    const classes = useStyles();
+    const [mobileOpen, setMobileOpen] = React.useState(true);
+
+    if (!props) {
+        return null;
     }
 
-    renderTodoIcon() {
-        let uncompletedTodos = this.props.todoList.filter(t => t.completed === false);
-
-        if (uncompletedTodos.length > 0) {
-            return (
-                <Badge color="secondary" badgeContent={uncompletedTodos.length}>
-                    <TodoIcon />
-                </Badge>
-            );
-        } else {
-            return (
-                <TodoIcon />
-            );
-        }
-    }
-
-    private handleDrawerToggle = () => {
-        this.setState({ mobileOpen: !this.state.mobileOpen });
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
     };
+
+    return (
+        <Router history={history}>
+            <div className={classes.root}>
+                <div className={classes.appFrame}>
+                    <AppBar className={classes.appBar}>
+                        <Toolbar>
+                            <IconButton
+                                color="inherit"
+                                aria-label="open drawer"
+                                onClick={handleDrawerToggle}
+                                className={classes.navIconHide}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" color="inherit" noWrap={isWidthUp('sm', props.width)}>
+                                Create-React-App with Material-UI, Typescript, Redux and Routing
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                    <Hidden mdUp>
+                        <DrawerMui
+                            variant="temporary"
+                            anchor={'left'}
+                            open={mobileOpen}
+                            classes={{
+                                paper: classes.drawerPaper,
+                            }}
+                            onClose={handleDrawerToggle}
+                            ModalProps={{
+                                keepMounted: true, // Better open performance on mobile.
+                            }}
+                        >
+                            <Drawer todoList={props.todoList} />
+                        </DrawerMui>
+                    </Hidden>
+                    <Hidden smDown>
+                        <DrawerMui
+                            variant="permanent"
+                            open
+                            classes={{
+                                paper: classes.drawerPaper,
+                            }}
+                        >
+                            <Drawer todoList={props.todoList} />
+                        </DrawerMui>
+                    </Hidden>
+                    <Routes />
+                </div>
+            </div>
+        </Router>
+    );
+
+}
+
+function TodoIcon(props: { todoList: Todo[] }) {
+    let uncompletedTodos = props.todoList.filter(t => t.completed === false);
+
+    if (uncompletedTodos.length > 0) {
+        return (
+            <Badge color="secondary" badgeContent={uncompletedTodos.length}>
+                <FormatListNumberedIcon />
+            </Badge>
+        );
+    } else {
+        return (
+            <FormatListNumberedIcon />
+        );
+    }
 }
 
 const drawerWidth = 240;
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     root: {
         width: '100%',
         height: '100%',
@@ -185,7 +185,7 @@ const styles = (theme: Theme) => createStyles({
             marginTop: 64,
         },
     },
-});
+}));
 
 function mapStateToProps(state: RootState) {
     return {
@@ -193,4 +193,4 @@ function mapStateToProps(state: RootState) {
     };
 }
 
-export default withRoot(withStyles(styles)(connect(mapStateToProps)(withWidth()(App))));
+export default connect(mapStateToProps)(withRoot(withWidth()(App)));

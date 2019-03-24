@@ -1,4 +1,3 @@
-import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import * as localforage from 'localforage';
 import { applyMiddleware, createStore } from 'redux';
@@ -20,8 +19,8 @@ const history = createBrowserHistory();
 
 const dev = process.env.NODE_ENV === 'development';
 
-var middleware = dev ? applyMiddleware(logger, thunk, routerMiddleware(history)) :
-    applyMiddleware(thunk, routerMiddleware(history));
+let middleware = dev ? applyMiddleware(logger, thunk) :
+    applyMiddleware(thunk);
 
 if (dev) {
     middleware = composeWithDevTools(middleware);
@@ -30,8 +29,8 @@ if (dev) {
 const persistedReducer = persistReducer(persistConfig, rootReducer(history));
 
 export default () => {
-    let store = createStore(persistedReducer, {}, middleware);
-    let persistor = persistStore(store);
+    const store = createStore(persistedReducer, {}, middleware);
+    const persistor = persistStore(store);
     return { store, persistor };
 };
 

@@ -1,5 +1,7 @@
 # Create React App example with Material-UI, TypeScript, Redux and Routing
 
+This is a new verison with React Hooks, Material-UI 4 (alpha) and React-Redux 7 (beta). We use this template for all our new projects. But if you want a well testet one with no alphas and betas you can use the [previous version](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v1) with class componets and very stable dependencies.
+
 <img width="100%" src="screenshot.png" alt="example"/>
 
 Inspired by:
@@ -22,10 +24,9 @@ Inspired by:
 
 ## Roadmap
 
-- [ ] Wait for react-redux hooks
-- [ ] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
-
-See the progress on [Branch V2](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v2)
+- [x] Make function based components and use hooks for state etc.
+- [x] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
+- [] Waiting for the public hook api of react-redux which is discussed [here](https://github.com/reduxjs/react-redux/issues/1179)
 
 ## How to use
 
@@ -52,6 +53,16 @@ to
 ```javascript
 registerServiceWorker();
 ```
+
+## Enable tslint in VSCode
+ 1. Step: Install the TSLint plugin of Microsoft
+ 2. Add the following snippet to your settings in VSCode:
+ ```json
+     "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": true,
+        "source.organizeImports": true // optional
+    },
+ ```
 
 ## The idea behind the example
 

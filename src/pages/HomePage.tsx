@@ -1,36 +1,65 @@
-import { createStyles, Theme, Typography, WithStyles, withStyles } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router-dom';
+import HomeBox from '../components/HomeBox';
 import { Todo } from '../model/model';
 import { RootState } from '../reducers';
 
-export namespace HomePage {
-  export interface Props extends RouteComponentProps<void>, WithStyles<typeof styles> {
-    todoList: Todo[];
-  }
+interface Props extends RouteComponentProps<void> {
+  todoList: Todo[];
 }
 
-class HomePage extends React.Component<HomePage.Props> {
+function HomePage(props: Props) {
+  const classes = useStyles();
+  const [boxColor, setBoxColor] = React.useState('red');
 
-  render() {
-    return (
-      <div className={this.props.classes.root}>
-        <Typography variant="h4" gutterBottom>
-          You have {this.props.todoList.length} TODOs in your list!
+  const onButtonClick = () => setBoxColor(boxColor === 'red' ? 'blue' : 'red');
+
+  return (
+    <div className={classes.root}>
+      <Typography variant="h4" gutterBottom>
+        You have {props.todoList.length} TODOs in your list!
         </Typography>
+      <div className={classes.centerContainer}>
+
+        <HomeBox size={300} color={boxColor} />
+        <Button
+          className={classes.button}
+          onClick={onButtonClick}
+          variant="outlined"
+          color="primary"
+        >
+          Change Color
+        </Button>
+
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-const styles = (theme: Theme) => createStyles({
+const useStyles = makeStyles({
   root: {
+    height: '100%',
     textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
+    paddingTop: 20,
     paddingLeft: 15,
     paddingRight: 15,
   },
+
+  centerContainer: {
+    flex: 1,
+    height: '90%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column'
+  },
+
+  button: {
+    marginTop: 20
+  }
 });
 
 function mapStateToProps(state: RootState) {
@@ -39,4 +68,4 @@ function mapStateToProps(state: RootState) {
   };
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(HomePage));
+export default connect(mapStateToProps)(HomePage);

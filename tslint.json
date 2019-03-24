@@ -3,6 +3,12 @@
         "tslint-react"
     ],
     "rules": {
+        "react/no-unsafe": [
+            true,
+            {
+                "checkAliases": true
+            }
+        ],
         "align": [
             true,
             "parameters",
@@ -35,7 +41,7 @@
         "max-line-length": [
             true,
             {
-                "limit": 120,
+                "limit": 140,
                 "ignore-pattern": "^import {(.*?)}"
             }
         ],
