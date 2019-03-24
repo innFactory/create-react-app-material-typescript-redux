@@ -68,6 +68,7 @@ registerServiceWorker();
 
 ## Enable project snippets [OPTIONAL]
 Just install following extension:
+
 <img width="70%" src="vscode_snippet0.png" alt="Project Snippet"/>
 
 After that you can start to type `fcomp` (_for function component_) and you get a template for a new component.
