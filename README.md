@@ -26,7 +26,7 @@ Inspired by:
 
 - [x] Make function based components and use hooks for state etc.
 - [x] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks 
-- [] Waiting for the public hook api of react-redux which is discussed [here](https://github.com/reduxjs/react-redux/issues/1179)
+- [ ] Waiting for the public hook api of react-redux which is discussed [here](https://github.com/reduxjs/react-redux/issues/1179)
 
 ## How to use
 
