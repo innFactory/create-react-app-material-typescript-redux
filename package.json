@@ -2,18 +2,17 @@
   "name": "create-react-app-typescript-redux",
   "version": "2.0.0",
   "dependencies": {
-    "localforage": "^1.7.3",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "react-redux": "^7.0.0-beta.0",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
-    "redux-persist": "^5.10.0",
-    "redux-thunk": "^2.3.0",
-    "typescript": "3.3.4000",
-    "@material-ui/core": "^4.0.0-alpha.5",
-    "@material-ui/icons": "^4.0.0-alpha.1",
-    "@material-ui/styles": "^4.0.0-alpha.5"
+    "localforage": "1.7.3",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-redux": "7.0.2",
+    "react-router-dom": "5.0.0",
+    "react-scripts": "3.0.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "5.10.0",
+    "redux-thunk": "2.3.0",
+    "typescript": "3.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,15 +27,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react": "7.12.4",
+    "@material-ui/core": "^4.0.0-alpha.8",
+    "@material-ui/icons": "^4.0.0-alpha.8",
+    "@material-ui/styles": "^4.0.0-alpha.8",
     "@types/jest": "24.0.11",
-    "@types/node": "11.11.6",
-    "@types/react": "16.8.8",
+    "@types/node": "^11.13.7",
+    "@types/react": "^16.8.14",
     "@types/react-dom": "16.8.3",
-    "@types/react-redux": "^7.0.5",
-    "@types/react-router-dom": "^4.3.1",
+    "@types/react-redux": "^7.0.8",
+    "@types/react-router-dom": "^4.3.2",
     "@types/redux-logger": "^3.0.7",
-    "redux-devtools-extension": "^2.13.8",
-    "redux-logger": "^3.0.6"
+    "@types/webpack-env": "^1.13.9"
   }
 }
