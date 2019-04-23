@@ -1,7 +1,7 @@
 import { Action, ActionType, Todo } from '../model/model';
 import createReducer from './createReducer';
 
-export const todoList = createReducer([], {
+export const todoList = createReducer<Todo[]>([], {
     [ActionType.ADD_TODO](state: Todo[], action: Action<Todo>) {
         return [...state, action.payload];
     },
