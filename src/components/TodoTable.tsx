@@ -28,9 +28,9 @@ function TodoTable(props: Props) {
 			<Table className={classes.table}>
 				<TableHead>
 					<TableRow>
-						<TableCell padding="normal">Completed</TableCell>
-						<TableCell padding="normal">Text</TableCell>
-						<TableCell padding="normal">Delete</TableCell>
+						<TableCell padding="default">Completed</TableCell>
+						<TableCell padding="default">Text</TableCell>
+						<TableCell padding="default">Delete</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
