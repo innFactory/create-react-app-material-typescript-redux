@@ -1,6 +1,6 @@
 # Create React App example with Material-UI, TypeScript, Redux and Routing
 
-This is a new verison with React Hooks, Material-UI 4 (beta) and React-Redux 7 (hooks are in alpha). We use this template for all our new projects. But if you want a well testet one with no alphas and betas you can use the [previous version](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v1) with class componets and very stable dependencies.
+This is a new verison with React Hooks, Material-UI 4 and React-Redux 7 (hooks are in alpha). We use this template for all our new projects. But if you want a well testet one with no alphas and betas you can use the [previous version](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v1) with class componets and very stable dependencies.
 
 <img width="100%" src="screenshot.png" alt="example"/>
 
