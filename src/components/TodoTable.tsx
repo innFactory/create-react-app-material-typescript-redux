@@ -3,23 +3,26 @@ import { Checkbox, IconButton, Paper, Table, TableBody, TableCell, TableHead, Ta
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
+// TODO: remove ts-ignore when react-redux typings are complete
+// @ts-ignore
+import { useSelector } from "react-redux";
+import { useActions } from "../actions";
 import * as TodoActions from "../actions/todo";
 import { Todo } from "../model/model";
+import { RootState } from "../reducers";
 
-interface Props {
-	todoList: Todo[];
-	actions: typeof TodoActions;
-}
+interface Props {}
 
 function TodoTable(props: Props) {
-	const { todoList, actions } = props;
 	const classes = useStyles();
+	const todoList = useSelector((state: RootState) => state.todoList);
+	const todoActions = useActions(TodoActions);
 
 	const onRowClick = (todo: Todo) => {
 		if (todo.completed) {
-			props.actions.uncompleteTodo(todo.id);
+			todoActions.uncompleteTodo(todo.id);
 		} else {
-			props.actions.completeTodo(todo.id);
+			todoActions.completeTodo(todo.id);
 		}
 	};
 
@@ -34,7 +37,7 @@ function TodoTable(props: Props) {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{todoList.map(n => {
+					{todoList.map((n: Todo) => {
 						return (
 							<TableRow
 								key={n.id}
@@ -49,7 +52,9 @@ function TodoTable(props: Props) {
 									<IconButton
 										aria-label="Delete"
 										color="default"
-										onClick={() => actions.deleteTodo(n.id)}
+										onClick={() =>
+											todoActions.deleteTodo(n.id)
+										}
 									>
 										<DeleteIcon />
 									</IconButton>

@@ -2,21 +2,22 @@
 import { Button, Dialog, DialogActions, DialogTitle, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
+import { useActions } from "../actions";
 import * as TodoActions from "../actions/todo";
 
 interface Props {
-	actions: typeof TodoActions;
 	open: boolean;
 	onClose: () => void;
 }
 
 function TodoDialog(props: Props) {
-	const { actions, open, onClose } = props;
+	const { open, onClose } = props;
 	const classes = useStyles();
 	const [newTodoText, setNewTodoText] = React.useState("");
+	const todoActions = useActions(TodoActions);
 
 	const handleClose = () => {
-		actions.addTodo({
+		todoActions.addTodo({
 			id: Math.random(),
 			completed: false,
 			text: newTodoText,

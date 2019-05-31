@@ -1,19 +1,19 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
-import { connect } from "react-redux";
+// TODO: remove ts-ignore when react-redux typings are complete
+// @ts-ignore
+import { useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 import HomeBox from "../components/HomeBox";
-import { Todo } from "../model/model";
 import { RootState } from "../reducers";
 
-interface Props extends RouteComponentProps<void> {
-	todoList: Todo[];
-}
+interface Props extends RouteComponentProps<void> {}
 
 function HomePage(props: Props) {
 	const classes = useStyles();
 	const [boxColor, setBoxColor] = React.useState("red");
+	const todoList = useSelector((state: RootState) => state.todoList);
 
 	const onButtonClick = () =>
 		setBoxColor(boxColor === "red" ? "blue" : "red");
@@ -21,7 +21,7 @@ function HomePage(props: Props) {
 	return (
 		<div className={classes.root}>
 			<Typography variant="h4" gutterBottom>
-				You have {props.todoList.length} TODOs in your list!
+				You have {todoList.length} TODOs in your list!
 			</Typography>
 			<div className={classes.centerContainer}>
 				<HomeBox size={300} color={boxColor} />
@@ -61,10 +61,4 @@ const useStyles = makeStyles({
 	},
 });
 
-function mapStateToProps(state: RootState) {
-	return {
-		todoList: state.todoList,
-	};
-}
-
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;
