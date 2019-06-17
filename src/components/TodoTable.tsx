@@ -3,8 +3,6 @@ import { Checkbox, IconButton, Paper, Table, TableBody, TableCell, TableHead, Ta
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
-// TODO: remove ts-ignore when react-redux typings are complete
-// @ts-ignore
 import { useSelector } from "react-redux";
 import { useActions } from "../actions";
 import * as TodoActions from "../actions/todo";

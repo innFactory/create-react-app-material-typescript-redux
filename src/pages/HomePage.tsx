@@ -1,8 +1,6 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
-// TODO: remove ts-ignore when react-redux typings are complete
-// @ts-ignore
 import { useSelector } from "react-redux";
 import { RouteComponentProps } from "react-router-dom";
 import HomeBox from "../components/HomeBox";

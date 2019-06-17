@@ -1,6 +1,4 @@
 import { useMemo } from "react";
-// TODO: remove ts-ignore when react-redux typings are complete
-// @ts-ignore
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 
