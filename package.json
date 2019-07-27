@@ -2,20 +2,20 @@
 	"name": "create-react-app-typescript-redux",
 	"version": "2.0.0",
 	"dependencies": {
-		"@material-ui/core": "4.1.2",
+		"@material-ui/core": "4.2.1",
 		"@material-ui/icons": "4.2.1",
-		"@material-ui/styles": "4.1.2",
+		"@material-ui/styles": "4.2.1",
 		"localforage": "1.7.3",
 		"react": "16.8.6",
 		"react-dom": "16.8.6",
 		"react-redux": "7.1.0",
-		"react-router-dom": "5.0.0",
-		"react-scripts": "3.0.0",
-		"redux-devtools-extension": "^2.13.8",
-		"redux-logger": "^3.0.6",
+		"react-router-dom": "5.0.1",
+		"react-scripts": "3.0.1",
 		"redux-persist": "5.10.0",
 		"redux-thunk": "2.3.0",
-		"typescript": "3.5.1"
+		"typescript": "3.5.3",
+		"redux-devtools-extension": "2.13.8",
+		"redux-logger": "3.0.6"
 	},
 	"scripts": {
 		"start": "react-scripts start",
@@ -30,14 +30,14 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
-		"eslint-plugin-react": "7.12.4",
-		"@types/jest": "24.0.11",
-		"@types/node": "^11.13.7",
-		"@types/react": "^16.8.14",
-		"@types/react-dom": "16.8.3",
-		"@types/react-router-dom": "^4.3.2",
-		"@types/redux-logger": "^3.0.7",
-		"@types/webpack-env": "^1.13.9",
-		"@types/react-redux": "7.1.0"
+		"eslint-plugin-react": "7.14.3",
+		"@types/jest": "24.0.15",
+		"@types/node": "12.6.8",
+		"@types/react": "16.8.23",
+		"@types/react-dom": "16.8.5",
+		"@types/react-router-dom": "4.3.4",
+		"@types/redux-logger": "3.0.7",
+		"@types/webpack-env": "1.14.0",
+		"@types/react-redux": "7.1.1"
 	}
 }
