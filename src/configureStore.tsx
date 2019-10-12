@@ -7,7 +7,7 @@ import { PersistConfig, persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
-const persistConfig: PersistConfig = {
+const persistConfig: PersistConfig<any> = {
 	key: "root",
 	version: 1,
 	storage: localforage,
