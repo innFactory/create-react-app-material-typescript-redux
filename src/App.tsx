@@ -1,20 +1,19 @@
 // prettier-ignore
-import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, withWidth } from "@material-ui/core";
+import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, withWidth, useMediaQuery } from "@material-ui/core";
 import { Theme } from "@material-ui/core/styles";
-import { isWidthUp, WithWidth } from "@material-ui/core/withWidth";
 import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import HomeIcon from "@material-ui/icons/Home";
 import MenuIcon from "@material-ui/icons/Menu";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles, useTheme } from "@material-ui/styles";
 import * as React from "react";
-import { connect } from "react-redux";
-import { Route, RouteComponentProps, Router } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import { history } from "./configureStore";
 import { Todo } from "./model/model";
 import HomePage from "./pages/HomePage";
 import TodoPage from "./pages/TodoPage";
 import { RootState } from "./reducers/index";
 import withRoot from "./withRoot";
+import { useSelector } from "react-redux";
 
 function Routes() {
 	const classes = useStyles();
@@ -56,17 +55,13 @@ function Drawer(props: { todoList: Todo[] }) {
 	);
 }
 
-interface Props extends RouteComponentProps<void>, WithWidth {
-	todoList: Todo[];
-}
-
-function App(props?: Props) {
+function App() {
 	const classes = useStyles();
 	const [mobileOpen, setMobileOpen] = React.useState(true);
-
-	if (!props) {
-		return null;
-	}
+	const todoList = useSelector((state: RootState) => state.todoList);
+	const isMobile = useMediaQuery((theme: Theme) =>
+		theme.breakpoints.down("sm")
+	);
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -89,7 +84,7 @@ function App(props?: Props) {
 							<Typography
 								variant="h6"
 								color="inherit"
-								noWrap={isWidthUp("sm", props.width)}
+								noWrap={isMobile}
 							>
 								Create-React-App with Material-UI, Typescript,
 								Redux and Routing
@@ -109,7 +104,7 @@ function App(props?: Props) {
 								keepMounted: true, // Better open performance on mobile.
 							}}
 						>
-							<Drawer todoList={props.todoList} />
+							<Drawer todoList={todoList} />
 						</DrawerMui>
 					</Hidden>
 					<Hidden smDown>
@@ -120,7 +115,7 @@ function App(props?: Props) {
 								paper: classes.drawerPaper,
 							}}
 						>
-							<Drawer todoList={props.todoList} />
+							<Drawer todoList={todoList} />
 						</DrawerMui>
 					</Hidden>
 					<Routes />
@@ -189,10 +184,4 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 }));
 
-function mapStateToProps(state: RootState) {
-	return {
-		todoList: state.todoList,
-	};
-}
-
-export default connect(mapStateToProps)(withRoot(withWidth()(App)));
+export default withRoot(App);
