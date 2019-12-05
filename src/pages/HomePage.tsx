@@ -6,9 +6,7 @@ import { RouteComponentProps } from "react-router-dom";
 import HomeBox from "../components/HomeBox";
 import { RootState } from "../reducers";
 
-interface Props extends RouteComponentProps<void> {}
-
-function HomePage(props: Props) {
+function HomePage() {
 	const classes = useStyles();
 	const [boxColor, setBoxColor] = React.useState("red");
 	const todoList = useSelector((state: RootState) => state.todoList);

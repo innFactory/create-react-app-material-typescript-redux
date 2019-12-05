@@ -9,9 +9,7 @@ import * as TodoActions from "../actions/todo";
 import { Todo } from "../model/model";
 import { RootState } from "../reducers";
 
-interface Props {}
-
-function TodoTable(props: Props) {
+function TodoTable() {
 	const classes = useStyles();
 	const todoList = useSelector((state: RootState) => state.todoList);
 	const todoActions = useActions(TodoActions);

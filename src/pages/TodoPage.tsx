@@ -6,9 +6,7 @@ import { RouteComponentProps } from "react-router-dom";
 import TodoTable from "../components";
 import TodoDialog from "../components/TodoDialog";
 
-interface Props extends RouteComponentProps<void> {}
-
-function TodoPage(props: Props) {
+function TodoPage() {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
 
