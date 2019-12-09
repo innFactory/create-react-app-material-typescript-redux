@@ -6,9 +6,8 @@ interface Props {
 	color: "red" | "blue" | string;
 }
 
-function HomeBox(props: Props) {
+export function HomeBox(props: Props) {
 	const { size, ...other } = props;
-
 	const classes = useStyles(props);
 
 	return (
@@ -39,5 +38,3 @@ const useStyles = makeStyles((theme: Theme) => ({
 		color: "white",
 	},
 }));
-
-export default HomeBox;

@@ -2,11 +2,9 @@ import { Button, Grid, Typography } from "@material-ui/core";
 import { Theme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
-import TodoTable from "../components";
-import TodoDialog from "../components/TodoDialog";
+import { TodoDialog, TodoTable } from "../components";
 
-function TodoPage() {
+export function TodoPage() {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
 
@@ -65,5 +63,3 @@ const useStyles = makeStyles((theme: Theme) => ({
 		marginBottom: 15,
 	},
 }));
-
-export default TodoPage;

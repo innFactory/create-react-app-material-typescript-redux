@@ -2,11 +2,10 @@ import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
 import { useSelector } from "react-redux";
-import { RouteComponentProps } from "react-router-dom";
-import HomeBox from "../components/HomeBox";
+import { HomeBox } from "../components";
 import { RootState } from "../reducers";
 
-function HomePage() {
+export function HomePage() {
 	const classes = useStyles();
 	const [boxColor, setBoxColor] = React.useState("red");
 	const todoList = useSelector((state: RootState) => state.todoList);
@@ -56,5 +55,3 @@ const useStyles = makeStyles({
 		marginTop: 20,
 	},
 });
-
-export default HomePage;

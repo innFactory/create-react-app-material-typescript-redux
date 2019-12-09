@@ -9,7 +9,7 @@ import * as TodoActions from "../actions/todo";
 import { Todo } from "../model/model";
 import { RootState } from "../reducers";
 
-function TodoTable() {
+export function TodoTable() {
 	const classes = useStyles();
 	const todoList = useSelector((state: RootState) => state.todoList);
 	const todoActions = useActions(TodoActions);
@@ -74,5 +74,3 @@ const useStyles = makeStyles({
 		width: "100%",
 	},
 });
-
-export default TodoTable;

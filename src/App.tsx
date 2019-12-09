@@ -1,19 +1,18 @@
 // prettier-ignore
-import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, withWidth, useMediaQuery } from "@material-ui/core";
+import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, useMediaQuery } from "@material-ui/core";
 import { Theme } from "@material-ui/core/styles";
 import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import HomeIcon from "@material-ui/icons/Home";
 import MenuIcon from "@material-ui/icons/Menu";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/styles";
 import * as React from "react";
+import { useSelector } from "react-redux";
 import { Route, Router } from "react-router-dom";
 import { history } from "./configureStore";
 import { Todo } from "./model/model";
-import HomePage from "./pages/HomePage";
-import TodoPage from "./pages/TodoPage";
+import { HomePage, TodoPage } from "./pages";
 import { RootState } from "./reducers/index";
-import withRoot from "./withRoot";
-import { useSelector } from "react-redux";
+import { withRoot } from "./withRoot";
 
 function Routes() {
 	const classes = useStyles();

@@ -10,7 +10,7 @@ interface Props {
 	onClose: () => void;
 }
 
-function TodoDialog(props: Props) {
+export function TodoDialog(props: Props) {
 	const { open, onClose } = props;
 	const classes = useStyles();
 	const [newTodoText, setNewTodoText] = React.useState("");
@@ -57,5 +57,3 @@ const useStyles = makeStyles({
 		margin: 20,
 	},
 });
-
-export default TodoDialog;
