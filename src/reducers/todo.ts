@@ -1,4 +1,4 @@
-import { Action, ActionType, Todo } from "../model/model";
+import { Action, ActionType, Todo } from "../model";
 import createReducer from "./createReducer";
 
 export const todoList = createReducer<Todo[]>([], {

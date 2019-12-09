@@ -6,7 +6,7 @@ import * as React from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "../actions";
 import * as TodoActions from "../actions/todo";
-import { Todo } from "../model/model";
+import { Todo } from "../model";
 import { RootState } from "../reducers";
 
 export function TodoTable() {
