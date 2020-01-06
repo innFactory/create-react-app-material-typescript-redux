@@ -19,7 +19,7 @@ const history = createBrowserHistory();
 
 const dev = process.env.NODE_ENV === "development";
 
-let middleware = dev ? applyMiddleware(logger, thunk) : applyMiddleware(thunk);
+let middleware = dev ? applyMiddleware(thunk, logger) : applyMiddleware(thunk);
 
 if (dev) {
 	middleware = composeWithDevTools(middleware);
