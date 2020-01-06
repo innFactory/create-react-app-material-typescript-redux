@@ -28,7 +28,7 @@ if (dev) {
 const persistedReducer = persistReducer(persistConfig, rootReducer(history));
 
 export default () => {
-	const store = createStore(persistedReducer, {}, middleware);
+	const store = createStore(persistedReducer, {}, middleware) as any;
 	const persistor = persistStore(store);
 	return { store, persistor };
 };
