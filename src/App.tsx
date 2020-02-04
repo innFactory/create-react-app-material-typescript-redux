@@ -1,18 +1,36 @@
 // prettier-ignore
-import { AppBar, Badge, Divider, Drawer as DrawerMui, Hidden, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography, useMediaQuery } from "@material-ui/core";
-import { Theme } from "@material-ui/core/styles";
-import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
-import HomeIcon from "@material-ui/icons/Home";
-import MenuIcon from "@material-ui/icons/Menu";
-import { makeStyles } from "@material-ui/styles";
-import * as React from "react";
-import { useSelector } from "react-redux";
-import { Route, Router } from "react-router-dom";
-import { history } from "./configureStore";
-import { Todo } from "./model";
-import { HomePage, TodoPage } from "./pages";
-import { RootState } from "./reducers/index";
-import { withRoot } from "./withRoot";
+import {
+    AppBar,
+    Badge,
+    Divider,
+    Drawer as DrawerMui,
+    Hidden,
+    IconButton,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Toolbar,
+    Typography,
+    useMediaQuery,
+} from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
+import PlusIcon from '@material-ui/icons/Add';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
+import HomeIcon from '@material-ui/icons/Home';
+import MenuIcon from '@material-ui/icons/Menu';
+import { makeStyles } from '@material-ui/styles';
+import * as React from 'react';
+import { Detector } from 'react-detect-offline';
+import { useSelector } from 'react-redux';
+import { Route, Router } from 'react-router-dom';
+
+import { AddToHomescreenDialog } from './components/AddToHomescreenDialog';
+import { history } from './configureStore';
+import { Todo } from './model';
+import { HomePage, TodoPage } from './pages';
+import { RootState } from './reducers';
+import { withRoot } from './withRoot';
 
 function Routes() {
 	const classes = useStyles();
@@ -28,10 +46,37 @@ function Routes() {
 
 function Drawer(props: { todoList: Todo[] }) {
 	const classes = useStyles();
+	const [homeScreenDialogOpen, setHomeScreenDialogOpen] = React.useState(false);
 
 	return (
 		<div>
 			<div className={classes.drawerHeader} />
+			<Divider />
+			<List>
+				<Detector
+					render={({ online }: any) => {
+						console.log(online);
+						return (
+
+							<div className={online ? classes.normal : classes.warning}>
+								You are currently {online ? "online" : "offline"}
+							</div>
+						);
+					}}
+				/>
+			</List>
+			<Divider />
+			<List>
+				<ListItem button onClick={() => { setHomeScreenDialogOpen(true); }}>
+					<ListItemIcon>
+						<div className={classes.row}>
+							<PlusIcon />
+							<HomeIcon />
+						</div>
+					</ListItemIcon>
+					<ListItemText primary="Add to Home" />
+				</ListItem>
+			</List>
 			<Divider />
 			<List>
 				<ListItem button onClick={() => history.push("/")}>
@@ -50,6 +95,10 @@ function Drawer(props: { todoList: Todo[] }) {
 					<ListItemText primary="Todo" />
 				</ListItem>
 			</List>
+			<AddToHomescreenDialog
+				open={homeScreenDialogOpen}
+				onClose={() => { setHomeScreenDialogOpen(false); }}
+			/>
 		</div>
 	);
 }
@@ -146,6 +195,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 		zIndex: 1,
 		overflow: "hidden",
 	},
+	row: {
+		display: 'flex',
+		flexDirection: 'row'
+	},
 	appFrame: {
 		position: "relative",
 		display: "flex",
@@ -170,6 +223,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 			position: "relative",
 			height: "100%",
 		},
+	},
+	normal: {
+		margin: 10,
+		color: 'green'
+	},
+	warning: {
+		margin: 10,
+		color: 'orange'
 	},
 	content: {
 		backgroundColor: theme.palette.background.default,
