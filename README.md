@@ -21,6 +21,7 @@ Inspired by:
 -   [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 -   [x] [TodoMVC example](http://todomvc.com)
 -   [x] PWA Support
+-   [x] Local Project Library (/lib)
 
 ## Roadmap
 
@@ -28,6 +29,34 @@ Inspired by:
 -   [x] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks
 -   [x] use react-redux hooks
 -   [ ] Hot Reloading -> Waiting for official support of react-scripts
+
+## Important notice:
+
+This project contains another lib project in its files. This lib project is included via the 'file' operator in the package.json. This leads to problems with react and material ui and updating the package-lock.json
+
+To solve this Problems the install and start commands are altered
+
+### To Install:
+
+```npm run-script installLocal```
+
+What it does:
+
+    - removes package-lock.json
+    - removes **lib** module from node_modules in **main project**
+    - installs npm modules in **lib**
+    - builds **lib**
+    - installs npm modules in **main project**
+
+### To start:
+
+```npm start```
+
+What it does:
+
+    - links react in main to react in **lib** node_modules
+    - removes **@material-ui** package from **lib** projects node_modules
+    - starts application
 
 ## How to use
 
