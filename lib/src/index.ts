@@ -1,3 +1,1 @@
-
-export {  StyledButton } from './mui-components/StyledButton';
-
+export { MyLibButton } from "./components";

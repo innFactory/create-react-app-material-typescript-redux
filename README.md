@@ -34,29 +34,29 @@ Inspired by:
 
 This project contains another lib project in its files. This lib project is included via the 'file' operator in the package.json. This leads to problems with react and material ui and updating the package-lock.json
 
-To solve this Problems the install and start commands are altered
-
 ### To Install:
 
-```npm run-script installLocal```
+`npm install`
 
-What it does:
-
-    - removes package-lock.json
-    - removes **lib** module from node_modules in **main project**
-    - installs npm modules in **lib**
-    - builds **lib**
-    - installs npm modules in **main project**
+> Behind the scene:
+>
+> -   It installs the dependencies for the main project as well as the lib.
+> -   It builds the library with the name react-lib
+> -   everything is processed automatic -> after the install you can start the project which is using the lib
 
 ### To start:
 
-```npm start```
+`npm start`
 
-What it does:
+### Run library (storybook)
 
-    - links react in main to react in **lib** node_modules
-    - removes **@material-ui** package from **lib** projects node_modules
-    - starts application
+`npm run storybook`
+
+### develope library components
+
+-   develop library components in `/lib/components`
+-   use this components in the main project in `/src`
+-   import them with `import { MyLibButton } from "react-lib";`
 
 ## How to use
 

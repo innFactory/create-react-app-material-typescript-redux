@@ -1,69 +1,67 @@
 {
-  "name": "create-react-app-lib",
-  "version": "0.0.3",
-  "description": "",
-  "author": "innFactory",
-  "license": "",
-  "repository": "",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
-  "scripts": {
-    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
-    "test:watch": "react-scripts-ts test --env=jsdom",
-    "build": "rollup -c",
-    "start": "start-storybook -p 9001 -c .storybook -s ./src/stories/assets",
-    "prepare": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "build-storybook": "build-storybook"
-  },
-  "dependencies": {
-    "classnames": ">= 2.2.6",
-    "cleave.js": "^1.4.10"
-  },
-  "peerDependencies": {
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "@material-ui/core": ">=4.9.0",
-    "@material-ui/icons": ">=4.5.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@material-ui/core": "4.9.0",
-    "@material-ui/icons": "4.5.1",
-    "@storybook/addon-actions": "^5.3.9",
-    "@storybook/addon-links": "^5.3.9",
-    "@storybook/react": "^5.2.8",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@types/classnames": "2.2.7",
-    "@types/jest": "^24.0.24",
-    "@types/react": "16.9.19",
-    "@types/react-dom": "16.9.5",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.6",
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1",
-    "prettier-standard": "^16.1.0",
-    "react": "16.12.0",
-    "react-dom": "16.12.0",
-    "rollup": "^1.27.13",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.0",
-    "rollup-plugin-typescript2": "^0.25.3",
-    "standard": "^14.3.1",
-    "standard-prettier": "^1.0.1",
-    "ts-jest": "^24.2.0",
-    "typescript": "3.7.5"
-  },
-  "files": [
-    "dist"
-  ]
+	"name": "react-lib",
+	"version": "0.0.3",
+	"description": "",
+	"author": "innFactory",
+	"license": "",
+	"repository": "",
+	"main": "dist/index.js",
+	"module": "dist/index.es.js",
+	"jsnext:main": "dist/index.es.js",
+	"engines": {
+		"node": ">=8",
+		"npm": ">=5"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"start": "start-storybook -p 9001 -c .storybook -s ./src/stories/assets",
+		"prepare": "npm run build",
+		"predeploy": "cd example && npm install && npm run build",
+		"deploy": "gh-pages -d example/build",
+		"storybook": "npm start",
+		"build-storybook": "build-storybook"
+	},
+	"dependencies": {
+		"classnames": ">= 2.2.6",
+		"cleave.js": "^1.4.10"
+	},
+	"peerDependencies": {
+		"react": "16.12.0",
+		"react-dom": "16.12.0",
+		"@material-ui/core": ">=4.9.0",
+		"@material-ui/icons": ">=4.5.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.7.7",
+		"@material-ui/core": "4.9.0",
+		"@material-ui/icons": "4.5.1",
+		"@storybook/addon-actions": "^5.3.9",
+		"@storybook/addon-links": "^5.3.9",
+		"@storybook/react": "^5.2.8",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.4.0",
+		"@types/classnames": "2.2.7",
+		"@types/jest": "^24.0.24",
+		"@types/react": "16.9.19",
+		"@types/react-dom": "16.9.5",
+		"awesome-typescript-loader": "^5.2.1",
+		"babel-loader": "^8.0.6",
+		"jest": "^24.9.0",
+		"prettier": "^1.19.1",
+		"prettier-standard": "^16.1.0",
+		"react": "16.12.0",
+		"react-dom": "16.12.0",
+		"rollup": "^1.27.13",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0",
+		"rollup-plugin-peer-deps-external": "^2.2.0",
+		"rollup-plugin-typescript2": "^0.25.3",
+		"standard": "^14.3.1",
+		"standard-prettier": "^1.0.1",
+		"ts-jest": "^24.2.0",
+		"typescript": "3.7.5"
+	},
+	"files": [
+		"dist"
+	]
 }
