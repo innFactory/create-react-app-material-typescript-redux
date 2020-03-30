@@ -1,4 +1,4 @@
-import { TodoAction, TodoActions, Todo } from "../model";
+import { TodoAction, TodoActions, Todo } from '../model';
 
 export function addTodo(todo: Todo): TodoAction {
 	return {

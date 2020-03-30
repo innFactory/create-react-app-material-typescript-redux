@@ -1,10 +1,10 @@
 // prettier-ignore
 import { Dialog, DialogActions, DialogTitle, TextField } from '@material-ui/core';
-import { makeStyles } from "@material-ui/styles";
-import * as React from "react";
-import { MyLibButton } from "react-lib";
-import { useActions } from "../actions";
-import * as TodoActions from "../actions/todo";
+import { makeStyles } from '@material-ui/styles';
+import * as React from 'react';
+import { MyLibButton } from 'react-lib';
+import { useActions } from '../actions';
+import * as TodoActions from '../actions/todo';
 
 interface Props {
 	open: boolean;
@@ -14,7 +14,7 @@ interface Props {
 export function TodoDialog(props: Props) {
 	const { open, onClose } = props;
 	const classes = useStyles();
-	const [newTodoText, setNewTodoText] = React.useState("");
+	const [newTodoText, setNewTodoText] = React.useState('');
 	const todoActions = useActions(TodoActions);
 
 	const handleClose = () => {
@@ -26,7 +26,7 @@ export function TodoDialog(props: Props) {
 		onClose();
 
 		// reset todo text if user reopens the dialog
-		setNewTodoText("");
+		setNewTodoText('');
 	};
 
 	const handleChange = (event: any) => {
@@ -52,7 +52,7 @@ export function TodoDialog(props: Props) {
 
 const useStyles = makeStyles({
 	textField: {
-		width: "80%",
+		width: '80%',
 		margin: 20,
 	},
 });

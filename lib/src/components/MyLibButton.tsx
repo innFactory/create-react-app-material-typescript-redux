@@ -1,5 +1,5 @@
-import { Button, makeStyles } from "@material-ui/core";
-import * as React from "react";
+import { Button, makeStyles } from '@material-ui/core';
+import * as React from 'react';
 
 interface Props {
 	color: any;

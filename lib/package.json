@@ -26,15 +26,15 @@
 		"cleave.js": "^1.4.10"
 	},
 	"peerDependencies": {
-		"react": "16.12.0",
-		"react-dom": "16.12.0",
-		"@material-ui/core": ">=4.9.0",
-		"@material-ui/icons": ">=4.5.1"
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
+		"@material-ui/core": ">=4.9.8",
+		"@material-ui/icons": ">=4.9.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.7",
-		"@material-ui/core": "4.9.0",
-		"@material-ui/icons": "4.5.1",
+		"@material-ui/core": "4.9.8",
+		"@material-ui/icons": "4.9.1",
 		"@storybook/addon-actions": "^5.3.9",
 		"@storybook/addon-links": "^5.3.9",
 		"@storybook/react": "^5.2.8",
@@ -47,19 +47,16 @@
 		"awesome-typescript-loader": "^5.2.1",
 		"babel-loader": "^8.0.6",
 		"jest": "^24.9.0",
-		"prettier": "^1.19.1",
-		"prettier-standard": "^16.1.0",
-		"react": "16.12.0",
-		"react-dom": "16.12.0",
+		"prettier": "2.0.2",
+		"react": "16.13.1",
+		"react-dom": "16.13.1",
 		"rollup": "^1.27.13",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-peer-deps-external": "^2.2.0",
 		"rollup-plugin-typescript2": "^0.25.3",
-		"standard": "^14.3.1",
-		"standard-prettier": "^1.0.1",
 		"ts-jest": "^24.2.0",
-		"typescript": "3.7.5"
+		"typescript": "3.8.3"
 	},
 	"files": [
 		"dist"

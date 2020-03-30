@@ -21,6 +21,7 @@ Inspired by:
 -   [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 -   [x] [TodoMVC example](http://todomvc.com)
 -   [x] PWA Support
+-   [x] Prettier 2 support
 -   [x] Local Project Library (/lib)
 
 ## Roadmap

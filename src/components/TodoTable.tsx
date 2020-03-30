@@ -1,13 +1,13 @@
 // prettier-ignore
 import { Checkbox, IconButton, Paper, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
-import { makeStyles } from "@material-ui/styles";
-import * as React from "react";
-import { useSelector } from "react-redux";
-import { useActions } from "../actions";
-import * as TodoActions from "../actions/todo";
-import { Todo } from "../model";
-import { RootState } from "../reducers";
+import DeleteIcon from '@material-ui/icons/Delete';
+import { makeStyles } from '@material-ui/styles';
+import * as React from 'react';
+import { useSelector } from 'react-redux';
+import { useActions } from '../actions';
+import * as TodoActions from '../actions/todo';
+import { Todo } from '../model';
+import { RootState } from '../reducers';
 
 export function TodoTable() {
 	const classes = useStyles();
@@ -35,11 +35,7 @@ export function TodoTable() {
 				<TableBody>
 					{todoList.map((n: Todo) => {
 						return (
-							<TableRow
-								key={n.id}
-								hover
-								onClick={event => onRowClick(n)}
-							>
+							<TableRow key={n.id} hover onClick={(event) => onRowClick(n)}>
 								<TableCell padding="none">
 									<Checkbox checked={n.completed} />
 								</TableCell>
@@ -48,9 +44,7 @@ export function TodoTable() {
 									<IconButton
 										aria-label="Delete"
 										color="default"
-										onClick={() =>
-											todoActions.deleteTodo(n.id)
-										}
+										onClick={() => todoActions.deleteTodo(n.id)}
 									>
 										<DeleteIcon />
 									</IconButton>
@@ -66,11 +60,11 @@ export function TodoTable() {
 
 const useStyles = makeStyles({
 	paper: {
-		width: "100%",
+		width: '100%',
 		minWidth: 260,
-		display: "inline-block",
+		display: 'inline-block',
 	},
 	table: {
-		width: "100%",
+		width: '100%',
 	},
 });

@@ -1,8 +1,8 @@
-import { Button, Grid, Typography } from "@material-ui/core";
-import { Theme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/styles";
-import * as React from "react";
-import { TodoDialog, TodoTable } from "../components";
+import { Button, Grid, Typography } from '@material-ui/core';
+import { Theme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
+import * as React from 'react';
+import { TodoDialog, TodoTable } from '../components';
 
 export function TodoPage() {
 	const classes = useStyles();
@@ -26,12 +26,7 @@ export function TodoPage() {
 			</Grid>
 			<Grid item xs={6}>
 				<div className={classes.buttonContainer}>
-					<Button
-						className={classes.button}
-						variant="contained"
-						color="secondary"
-						onClick={handleAddTodo}
-					>
+					<Button className={classes.button} variant="contained" color="secondary" onClick={handleAddTodo}>
 						Add Todo
 					</Button>
 				</div>
@@ -46,7 +41,7 @@ export function TodoPage() {
 const useStyles = makeStyles((theme: Theme) => ({
 	root: {
 		padding: 20,
-		[theme.breakpoints.down("md")]: {
+		[theme.breakpoints.down('md')]: {
 			paddingTop: 50,
 			paddingLeft: 15,
 			paddingRight: 15,
@@ -54,9 +49,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 	},
 
 	buttonContainer: {
-		width: "100%",
-		display: "flex",
-		justifyContent: "flex-end",
+		width: '100%',
+		display: 'flex',
+		justifyContent: 'flex-end',
 	},
 
 	button: {
