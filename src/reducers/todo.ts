@@ -1,5 +1,6 @@
-import { TodoAction, TodoActions, Todo } from "../model";
-import createReducer from "./createReducer";
+import { ConfigActions } from '../model/config';
+import { Todo, TodoAction, TodoActions } from '../model/index';
+import createReducer from './createReducer';
 
 export const todoList = createReducer<Todo[]>([], {
 	[TodoActions.ADD_TODO](state: Todo[], action: TodoAction) {
@@ -7,18 +8,17 @@ export const todoList = createReducer<Todo[]>([], {
 	},
 	[TodoActions.COMPLETE_TODO](state: Todo[], action: TodoAction) {
 		// search after todo item with the given id and set completed to true
-		return state.map(t =>
-			t.id === action.payload ? { ...t, completed: true } : t
-		);
+		return state.map(t => (t.id === action.payload ? { ...t, completed: true } : t));
 	},
 	[TodoActions.UNCOMPLETE_TODO](state: Todo[], action: TodoAction) {
 		// search after todo item with the given id and set completed to false
-		return state.map(t =>
-			t.id === action.payload ? { ...t, completed: false } : t
-		);
+		return state.map(t => (t.id === action.payload ? { ...t, completed: false } : t));
 	},
 	[TodoActions.DELETE_TODO](state: Todo[], action: TodoAction) {
 		// remove all todos with the given id
 		return state.filter(t => t.id !== action.payload);
+	},
+	[ConfigActions.PURGE_STATE](state: Todo[], action: TodoAction) {
+		return [];
 	},
 });

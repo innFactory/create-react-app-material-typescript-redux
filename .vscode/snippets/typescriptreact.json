@@ -10,7 +10,7 @@
 			"",
 			"}",
 			"",
-			"function $TM_FILENAME_BASE(props: Props) {",
+			"export function $TM_FILENAME_BASE(props: Props) {",
 			"",
 			"const {  } = props;",
 			"const classes = useStyles();",
@@ -27,9 +27,7 @@
 			"root: {",
 			"",
 			"},",
-			"});",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"});"
 		],
 		"description": "component + makeStyle"
 	},
@@ -44,7 +42,7 @@
 			"",
 			"}",
 			"",
-			"function $TM_FILENAME_BASE(props: Props) {",
+			"export function $TM_FILENAME_BASE(props: Props) {",
 			"",
 			"const {  } = props;",
 			"const classes = useStyles(props);",
@@ -61,9 +59,7 @@
 			"root: (props: Props) => ({",
 			"",
 			"}),",
-			"});",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"});"
 		],
 		"description": "component + makeStyle + Props"
 	},
@@ -78,7 +74,7 @@
 			"",
 			"}",
 			"",
-			"function $TM_FILENAME_BASE(props: Props) {",
+			"export function $TM_FILENAME_BASE(props: Props) {",
 			"",
 			"const {  } = props;",
 			"const classes = useStyles(props);",
@@ -95,9 +91,7 @@
 			"root: (props: Props) => ({",
 			"",
 			"}),",
-			"}));",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"}));"
 		],
 		"description": "component + makeStyle + Props + Theme"
 	},
@@ -112,7 +106,7 @@
 			"",
 			"}",
 			"",
-			"function $TM_FILENAME_BASE(props: Props) {",
+			"export function $TM_FILENAME_BASE(props: Props) {",
 			"",
 			"const {  } = props;",
 			"const classes = useStyles();",
@@ -129,16 +123,107 @@
 			"root: {",
 			"",
 			"},",
-			"}));",
-			"",
-			"export default $TM_FILENAME_BASE;"
+			"}));"
 		],
 		"description": "component + makeStyle + Theme"
 	},
 	"useState": {
-		"prefix": "state",
+		"prefix": "useState",
+		"body": ["const [${1:value}, set${1/(.*)/${1:/capitalize}/}] = React.useState(${2:value});$0"]
+	},
+
+	"lodash": {
+		"prefix": "lodash",
+		"body": ["import * as _ from 'lodash';"]
+	},
+
+	"useAction": {
+		"prefix": "useAction",
 		"body": [
-			"const [${1:value}, set${2:Value}] = React.useState(${3:value});$0"
+			"// import * as ${1/(.*)/${1:/capitalize}/}Actions from '../actions/${1:actionname}';",
+			"const ${1:actionname}Actions: typeof ${1/(.*)/${1:/capitalize}/}Actions = useActions(${1/(.*)/${1:/capitalize}/}Actions);"
 		]
+	},
+
+	"useEffect": {
+		"prefix": "useEffect",
+		"body": ["React.useEffect(() => {", "$0", "}, []);"]
+	},
+
+	"useSelector": {
+		"prefix": "useSelector",
+		"body": "const ${1:varialbe}: ${2:type} = useSelector((state: RootState) => state.${1:varialbe});"
+	},
+
+	"useHistory": {
+		"prefix": "useHistory",
+		"body": "const history = useHistory();"
+	},
+
+	"useMediaQuery - Breakpoint": {
+		"prefix": "useMedia",
+		"body": "const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));"
+	},
+
+	"useMediaQuery - ScreenWidth": {
+		"prefix": "useMedia",
+		"body": "const showIcon = useMediaQuery('(max-width:400px)');"
+	},
+
+	"useResponsive - isMobile": {
+		"prefix": "isMobile",
+		"body": "const { isMobile } = useResponsive();"
+	},
+
+	"handleTextField": {
+		"prefix": "handleTextField",
+		"body": [
+			"const handle${1:value} = (e: React.ChangeEvent<HTMLInputElement>) => {",
+			"const value = e.target.value;",
+			"",
+			"};"
+		]
+	},
+
+	"handleSelect": {
+		"prefix": "handleSelect",
+		"body": [
+			"const handle${1:value} =  (e: React.ChangeEvent<{ value: any }>) => {",
+			"const value = e.target.value as string;",
+			"",
+			"};"
+		]
+	},
+
+	"story": {
+		"prefix": "story",
+		"body": [
+			"import { Meta } from '@storybook/react';",
+			"import * as React from 'react';",
+			"import { withTheme } from './index.stories';",
+			"import { ${TM_FILENAME_BASE/(.stories)//}Props} from '../src/components/${TM_FILENAME_BASE/(.stories)//}'",
+			"import { ${TM_FILENAME_BASE/(.stories)//} } from '../src';",
+			"",
+			"export default {",
+			"title: '${TM_FILENAME_BASE/(.stories)//}',",
+			"component: ${TM_FILENAME_BASE/(.stories)//},",
+			"// argTypes: { onClick: { action: 'clicked' } },",
+			"} as Meta;",
+			"",
+			"const Template = (args: ${TM_FILENAME_BASE/(.stories)//}Props) =>",
+			"withTheme(",
+			"<${TM_FILENAME_BASE/(.stories)//} {...args} />",
+			");",
+			"",
+			"export const Default = Template.bind({});",
+			"",
+			"Default.args = {",
+			"",
+			"// add your props here",
+			"",
+			"} as ${TM_FILENAME_BASE/(.stories)//}Props;",
+			""
+		],
+		"description": "storybook"
 	}
 }

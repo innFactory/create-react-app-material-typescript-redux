@@ -19,3 +19,19 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# test coverage
+/cypress/screenshots
+/coverage/src
+/coverage/home
+/coverage/Users
+/coverage/base.css
+/coverage/block-navigation.js
+/coverage/coverage-final.json
+/coverage/coverage-summary.json
+/coverage/index.html
+/coverage/prettify.css
+/coverage/prettify.js
+/coverage/sort-arrow-sprite.png
+/coverage/sorter.js
+/coverage/favicon.png

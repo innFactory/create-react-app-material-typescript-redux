@@ -2,7 +2,7 @@
  * Created by toni on 12.03.2017.
  */
 import { Reducer } from "redux";
-import { Action } from "../model";
+import { Action } from "../model/index";
 
 export default function createReducer<S>(
 	initialState: S,

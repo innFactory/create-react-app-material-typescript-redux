@@ -1,0 +1,12 @@
+{
+  "generator-react-factory": {
+    "promptValues": {
+      "githubUser": "innFactory",
+      "appName": "create-react-app-material-typescript-redux",
+      "appVersion": "3.0.0",
+      "otherFeatures": [
+        "Snackbar State and Component"
+      ]
+    }
+  }
+}

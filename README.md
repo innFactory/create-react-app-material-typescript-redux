@@ -1,6 +1,6 @@
-# Create React App example with Material-UI, TypeScript, Redux and Routing
+# create-react-app-material-typescript-redux derived from Create React App example with Material-UI, TypeScript, Redux and Routing
 
-This is a new version with React Hooks, Material-UI 4 and React-Redux 7 (with hooks!). We use this template for all our new projects. If you want to bootstrap a project with the classic approach without hooks but with class components, you are welcome to use the [previous version](https://github.com/innFactory/create-react-app-material-typescript-redux/tree/v1).
+Made with our new CLI Tool [react-factory](https://github.com/innFactory/react-factory) for choosing the optional features and configure our individual setup.
 
 <img width="100%" src="screenshot.png" alt="example"/>
 
@@ -11,53 +11,46 @@ Inspired by:
 
 ## Contains
 
--   [x] [Material-UI](https://github.com/mui-org/material-ui)
--   [x] [Typescript](https://www.typescriptlang.org/)
--   [x] [React](https://facebook.github.io/react/)
--   [x] [Redux](https://github.com/reactjs/redux)
--   [x] [Redux-Thunk](https://github.com/gaearon/redux-thunk)
--   [x] [Redux-Persist](https://github.com/rt2zz/redux-persist)
--   [x] [React Router](https://github.com/ReactTraining/react-router)
--   [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
--   [x] [TodoMVC example](http://todomvc.com)
--   [x] PWA Support
+- [x] [Material-UI](https://github.com/mui-org/material-ui)
+- [x] [Typescript](https://www.typescriptlang.org/)
+- [x] [React](https://facebook.github.io/react/)
+- [x] [Redux](https://github.com/reactjs/redux)
+- [x] [Redux-Thunk](https://github.com/gaearon/redux-thunk)
+- [x] [Redux-Persist](https://github.com/rt2zz/redux-persist)
+- [x] [React Router](https://github.com/ReactTraining/react-router)
+- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
+- [x] [TodoMVC example](http://todomvc.com)
+  
+Optional:
 
-## Roadmap
+- [ ] Cypress-Tests-Environment
+- [ ] Firebase-Integration
+- [ ] Github Actions (cypress-test, build-and-deploy to firebase)
+- [ ] Snackbars
+- [ ] Subfolder Library
+- [ ] Service Worker
+- [ ] PolyFills (IE11)
 
--   [x] Make function based components and use hooks for state etc.
--   [x] Implement [Material-UIs new styling solution](https://material-ui.com/css-in-js/basics/) based on hooks
--   [x] use react-redux hooks
--   [ ] Hot Reloading -> Waiting for official support of react-scripts
 
 ## How to use
 
-Download or clone this repo
+We made a CLI Tool [react-factory](https://github.com/innFactory/react-factory) to include more options.
+
+<img width="70%" src="react_factory.png" alt="example"/>
+
+First install  [Yeoman](http://yeoman.io) and the CLI Tool:
+```bash
+npm install -g yo
+npm install -g generator-react-factory
+```
+
+Then generate your new project:
 
 ```bash
-git clone https://github.com/innFactory/create-react-app-material-typescript-redux
-cd create-react-app-material-typescript-redux
+yo react-factory
 ```
 
-Install it and run:
 
-```bash
-npm i
-npm start
-```
-
-## Enable PWA ServiceWorker [OPTIONAL]
-
-Just comment in the following line in the `index.tsx`:
-
-```javascript
-// registerServiceWorker();
-```
-
-to
-
-```javascript
-registerServiceWorker();
-```
 
 ## Enable Prettier [OPTIONAL]
 

@@ -5,7 +5,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 import { PersistConfig, persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers";
+import rootReducer from "./reducers/index";
 
 const persistConfig: PersistConfig<any> = {
 	key: "root",
